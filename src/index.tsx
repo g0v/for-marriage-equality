@@ -46,12 +46,6 @@ const rawData: any = Papa.parse(text, {
 
 const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
 
-console.log(rawData);
-console.log("done");
-
-const firstOne = shifts[1];
-console.log(firstOne.flyers);
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
