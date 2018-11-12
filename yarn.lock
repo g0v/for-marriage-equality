@@ -827,6 +827,13 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.5.tgz#7e7ea1a9b34d2c8d704cb0b755dffbcda34741ad"
   integrity sha512-GzdHjq3t3eGLMv92Al90Iq+EoLL+86mPfQhuglbBFO7HiLdC/rkt+zrzJJumAiBF6nsrBWhou22rPW663AAyFw==
 
+"@types/papaparse@^4.5.5":
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/@types/papaparse/-/papaparse-4.5.5.tgz#e7ababd781a60583f4717f9a1c9b67dff939c63f"
+  integrity sha512-ZUZ66cCRqq6WudXx9m6x6InJ022VTvAHp3ENHt/xtcRzaUkaL3/bjxrcExWNkNy5AvNmTEnvyCihWM7i/vblrA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/prop-types@*":
   version "15.5.6"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"

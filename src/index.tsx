@@ -2,53 +2,55 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'papaparse';
+import Papa from 'papaparse';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 class Canvass {
-    private notes: string;
-    private area: string;
-    private name: string;
-    private contactInfo: string;
-    private volunteersNeeded: number;
-    private startTime: string;
-    private endTime: string;
-    private date: string;
-    private type: string;
-    private location: string;
-    private flyers: number;
+    public notes: string;
+    public area: string;
+    public name: string;
+    public contactInfo: string;
+    public volunteersNeeded: number;
+    public startTime: string;
+    public endTime: string;
+    public date: string;
+    public type: string;
+    public location: string;
+    public flyers: number;
     constructor(
-        備註: string,
-        開團日期: string,
-        區域: string,
-        團長名稱: string,
-        團長聯絡方式: string,
-        希望志工人數: number,
-        開始時間: string,
-        結束時間: string,
-        開團形式: string,
-        地點: string,
-        預計發出文宣份數: number
+        rawItem: any
         ) {
-            this.notes = 備註;
-            this.area = 區域;
-            this.date = 開團日期;
-            this.name = 團長名稱;
-            this.contactInfo = 團長聯絡方式;
-            this.volunteersNeeded = 希望志工人數;
-            this.startTime = 開始時間;
-            this.endTime = 結束時間;
-            this.type = 開團形式;
-            this.location = 地點;
-            this.flyers = 預計發出文宣份數;
+            this.notes            = rawItem["備註"];
+            this.area             = rawItem["區域"];
+            this.date             = rawItem["開團日期"];
+            this.name             = rawItem["團長名稱"];
+            this.contactInfo      = rawItem["團長聯絡方式"];
+            this.volunteersNeeded = rawItem["希望志工人數"];
+            this.startTime        = rawItem["開始時間"];
+            this.endTime          = rawItem["結束時間"];
+            this.type             = rawItem["開團形式"];
+            this.location         = rawItem["地點"];
+            this.flyers           = rawItem["預計發出文宣份數"];
         }
 }
 
-const rawData = require('./data/canvass_times.csv');
+const text: string = require('./data/canvass_times.csv');
+const rawData: any = Papa.parse(text, {          
+    dynamicTyping: true,
+    header: true,
+    skipEmptyLines: true
+})['data'];
+
+const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
+
 console.log(rawData);
+console.log("done");
+
+const firstOne = shifts[1];
+console.log(firstOne.flyers);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
