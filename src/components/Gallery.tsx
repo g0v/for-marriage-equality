@@ -9,14 +9,11 @@ export interface Props {
 class Gallery extends Component<Props> {
     render() {
         const { shifts } = this.props
-        var items = [];
         
-        for (var i = 0; i < shifts.length; i++) {
-            items.push(<GalleryItem key={i} shift={shifts[i]} />)
-        }
         return (
             <div className="gallery">
-                {items}
+                {shifts.map((shift, index) => 
+                    {return <GalleryItem key={index} shift={shift}/>})}
             </div>
         )
     }
