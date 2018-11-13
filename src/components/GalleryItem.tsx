@@ -18,7 +18,7 @@ class GalleryItem extends Component<Props> {
         }
         return (
             <div className="gallery__item">
-                { shift.types.length > 0 &&
+                { shift.types.length > 0 && shift.types[0] !== CanvassType.none &&
                     <div className="gallery__item__labels-container">
                     {labels}
                     </div>
