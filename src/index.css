@@ -2,6 +2,22 @@ body {
   background-color: #f8f8f8;
 }
 
+.filter-form {
+  display: flex;
+}
+.filter-form input {
+  flex: 5;
+}
+.filter-form select {
+  flex: 1;
+  margin-left: 1em;
+}
+.filter-form__date-picker {
+  flex: 5;
+  height: 38px;
+  margin-left: 1em;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

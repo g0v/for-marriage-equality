@@ -10,8 +10,8 @@ export interface Props {
 export default class Selector extends Component<Props> {
     render() {
         return (
-            <select onChange={this.props.onChange} value={this.props.title} className="custom-select custom-select-lg mb-3">
-                <option>{this.props.defaultTitle}</option>
+            <select onChange={this.props.onChange} value={this.props.title} className="custom-select">
+                <option selected disabled>{this.props.defaultTitle}</option>
                 {this.props.options.map((option, index) => {
                     return <option 
                         className="dropdown-item" 

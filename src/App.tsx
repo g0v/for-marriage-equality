@@ -57,7 +57,7 @@ class App extends Component<Props, State> {
       <div className="App">
         <Navbar />
         <div className="container">
-          <div className="row">
+          <div className="row filter-form">
             <div className="search">
               <input
                 type="search"
@@ -78,6 +78,7 @@ class App extends Component<Props, State> {
             <DatePicker 
               selected={this.state.date}
               onChange={this.handleDateUpdate.bind(this)}
+              className="filter-form__date-picker"
             />
           </div>
         </div>
