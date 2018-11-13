@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Canvass from './canvass';
+import Table from './table';
 
 type Props = {
   shifts: Array<Canvass>
@@ -33,6 +34,7 @@ class App extends Component<Props> {
             </ul>
           </div>
         </nav>
+        <Table shifts={this.props.shifts} />
       </div>
       );
     }
