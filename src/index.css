@@ -1,14 +1,67 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.gallery::after {
+  content: "";
+  flex-grow: 1000000000;
+}
+.gallery__item {
+  display: block;
+  padding: 1em 1em 1.5em 1em;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  margin: 10px;
+}
+.gallery__item__labels-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 18px;
+  position: relative;
+  right: -7px;
+}
+.gallery__item__labels-container .label {
+  display: block;
+  padding: 4px 6px;
+  margin: 0px 4px;
+  border: 1px solid gainsboro;
+}
+.gallery__item__header {
+  font-size: 20px;
+  text-align: left;
+}
+.gallery__item__subheader {
+  font-size: 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.gallery__item__stats-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  margin-bottom: 16px;
+}
+.gallery__item__stats-container .stat {
+  flex: 1;
+}
+.gallery__item__text-block {
+  text-align: left;
+  font-size: 0.8em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.stat {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
+.stat__label {
+  margin-bottom: 0px;
+  font-size: 0.8em;
+}
+.stat__figure {
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=index.css.map */

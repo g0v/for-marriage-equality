@@ -13,16 +13,16 @@ class Label extends Component<Props> {
                 cn += " label--neutral"
                 break;
             case "對話":
-                cn += "label--prominent"
+                cn += " label--prominent"
                 break;
             case "代工":
-                cn += "label--muted"
+                cn += " label--muted"
                 break;
             case "掃街":
-                cn += "label--chill"
+                cn += " label--chill"
                 break;
             case "擺攤":
-            cn += "label--warm"
+                cn += " label--warm"
             break;
 
             default:
