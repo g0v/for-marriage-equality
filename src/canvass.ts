@@ -1,5 +1,5 @@
 export enum CanvassType {
-    spreadFlyers,
+    spreadFlyers = 1,
     dialogue,
     labor,
     streetRoaming,
@@ -15,6 +15,17 @@ function canvassType(raw: string): CanvassType {
     if(raw.indexOf("掃街") != -1) return CanvassType.streetRoaming;
     if(raw.indexOf("擺攤") != -1) return CanvassType.stall;
     return CanvassType.none;
+}
+
+function getType(c: CanvassType) {
+    switch(c) {
+        case CanvassType.spreadFlyers: return "發文宣";
+        case CanvassType.dialogue: return "對話";
+        case CanvassType.labor: return "代工";
+        case CanvassType.streetRoaming: return "掃街";
+        case CanvassType.stall: return "擺攤";
+        case CanvassType.none: return "無";
+    }
 }
 
 export enum Area {
@@ -105,5 +116,11 @@ export default class Canvass {
             case CanvassType.stall: return "擺攤";
             default: return "無";
         }
+    }
+    containsQuery(query: string): boolean {
+        return this.forQuery().indexOf(query) != -1;
+    }
+    forQuery(): string {
+        return JSON.stringify(this) + getArea(this.area) + getType(this.type);
     }
 }
