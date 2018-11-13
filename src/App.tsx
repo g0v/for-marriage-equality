@@ -78,6 +78,10 @@ class App extends Component<Props, State> {
             <DatePicker 
               selected={this.state.date}
               onChange={this.handleDateUpdate.bind(this)}
+              minDate={moment()}
+              maxDate={moment("2018-11-24")}
+              showDisabledMonthNavigation
+              placeholderText="選擇日期"
             />
           </div>
         </div>
