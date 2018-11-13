@@ -70,6 +70,7 @@ class App extends Component<Props, State> {
               />
             </div>
             <Selector 
+              defaultValue="區域"
               defaultTitle="區域"
               options={getAreas()} 
               onChange={this.handleAreaChange.bind(this)}
