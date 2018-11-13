@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 
 export interface Props {
-    text: string
     type: string
+    contact: string
 }
 
 class Action extends Component<Props> {
     render() {
-        const { text, type } = this.props
+        const { type, contact } = this.props
         var cn = "btn"
+        var link;
+        var buttonText;
         switch(type) {
-            case "fb":
-                cn += " btn--fb"
-                break;
             case "line":
                 cn += " btn--line"
+                link = `line://ti/p/@${contact}`
+                // buttonText = `Line @${contact}`
+                buttonText = `Line`
                 break;
             case "phone":
                 cn += " btn--phone"
+                buttonText = `打電話`
+                link = `tel://${contact}`
                 break;
             default:
             break;
         }
         return (
-            <button className={cn}>
-                {text}
-            </button>
+            <a className={cn} href={link}>
+                {buttonText}
+            </a>
         )
     }
 }
