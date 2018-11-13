@@ -14,9 +14,15 @@ const rawData: any = Papa.parse(text, {
     dynamicTyping: true,
     header: true,
     skipEmptyLines: true
-})['data'];
+})['data'].filter(removeEmpty);
+
+function removeEmpty(a: any): boolean {
+    return a["區域"]!==null;
+}
 
 const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
+
+console.log("Created these shifts.", shifts);
 
 ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 
