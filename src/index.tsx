@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Papa from 'papaparse';
 
 import './index.css';
+import "react-datepicker/dist/react-datepicker.css";
+
 import App from './App';
 import Canvass from './canvass';
 import * as serviceWorker from './serviceWorker';
