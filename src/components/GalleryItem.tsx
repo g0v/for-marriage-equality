@@ -15,25 +15,9 @@ class GalleryItem extends Component<Props> {
 
         return (
             <div className="gallery__item">
-                { shift.type !== null &&
-                    <div className="gallery__item__labels-container">
-                        { shift.type.indexOf("發文宣") != -1 &&
-                            <Label text="發文宣" />
-                        }
-                        { shift.type.indexOf("對話（") != -1 &&
-                            <Label text="對話" />
-                        }
-                        { shift.type.indexOf("代工") != -1 &&
-                            <Label text="代工" />
-                        }
-                        { shift.type.indexOf("掃街") != -1 &&
-                            <Label text="掃街" />
-                        }
-                        { shift.type.indexOf("擺攤") != -1 &&
-                            <Label text="擺攤" />
-                        }
-                    </div>
-                }
+                <div className="gallery__item__labels-container">
+                    <Label text={shift.getType()} />
+                </div>
                 <h2 className="gallery__item__header">
                     {shift.location}
                 </h2>
