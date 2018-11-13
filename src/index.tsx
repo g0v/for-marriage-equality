@@ -9,7 +9,6 @@ import App from './App';
 import Canvass from './canvass';
 import * as serviceWorker from './serviceWorker';
 
-
 const text: string = require('./data/canvass_times.csv');
 const rawData: any = Papa.parse(text, {          
     dynamicTyping: true,

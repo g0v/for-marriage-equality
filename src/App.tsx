@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import Gallery from './components/Gallery';
 import Canvass from './canvass';
 
@@ -11,7 +10,7 @@ export interface Props {
 class App extends Component<Props> {
   render() {
     const { shifts } = this.props;
-    
+
     return (
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,7 +32,6 @@ class App extends Component<Props> {
             </ul>
           </div>
         </nav>
-
         <Gallery shifts={shifts} />
       </div>
       );
