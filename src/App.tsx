@@ -79,6 +79,10 @@ class App extends Component<Props, State> {
               selected={this.state.date}
               onChange={this.handleDateUpdate.bind(this)}
               className="filter-form__date-picker"
+              minDate={moment()}
+              maxDate={moment("2018-11-24")}
+              showDisabledMonthNavigation
+              placeholderText="選擇日期"
             />
           </div>
         </div>
