@@ -9,10 +9,11 @@
 
     &__item {
         display: block;
-        padding: 1em 1em 1.5em 1em;
+        padding: 1em 1em 80px 1em;
         border: 1px solid rgb(220,220,220);
         border-radius: 5px;
         margin: 10px;
+        position: relative;
 
         &__labels-container {
             display: flex;
@@ -56,6 +57,28 @@
         &__text-block {
             text-align: left;
             font-size: 1em;
+            font-style: italic;
+        }
+
+        &__contact-container {
+            position: absolute;
+            bottom: 20px;
+
+            .stat {
+                float: left;
+            }
+
+            &__actions-container {
+                display: flex;
+                flex-direction: row;
+                float: left;
+                margin-top: 5px;
+                margin-left: 20px;
+
+                .btn {
+                    margin-right: 10px;
+                }
+            }
         }
     }
 }
@@ -69,5 +92,30 @@
         margin-bottom: 0px;
         font-size: 0.9em;
         font-weight: 500;
+    }
+}
+
+.btn {
+    border: 1px solid rgba(220,220,220,0.1);
+    border-radius: 6px;
+
+    &--line {
+        background-color: #00c300;
+        color: white;
+
+        &:hover {
+            background-color: #00db00;
+            color: white;
+        }
+    }
+
+    &--phone {
+        background-color: #2962ff;
+        color: white;
+
+        &:hover{
+            background-color: #2979ff;
+            color: white;
+        }
     }
 }

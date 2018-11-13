@@ -8,10 +8,11 @@
 }
 .gallery__item {
   display: block;
-  padding: 1em 1em 1.5em 1em;
+  padding: 1em 1em 80px 1em;
   border: 1px solid gainsboro;
   border-radius: 5px;
   margin: 10px;
+  position: relative;
 }
 .gallery__item__labels-container {
   display: flex;
@@ -49,6 +50,24 @@
 .gallery__item__text-block {
   text-align: left;
   font-size: 1em;
+  font-style: italic;
+}
+.gallery__item__contact-container {
+  position: absolute;
+  bottom: 20px;
+}
+.gallery__item__contact-container .stat {
+  float: left;
+}
+.gallery__item__contact-container__actions-container {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.gallery__item__contact-container__actions-container .btn {
+  margin-right: 10px;
 }
 
 .stat {
@@ -60,6 +79,27 @@
   margin-bottom: 0px;
   font-size: 0.9em;
   font-weight: 500;
+}
+
+.btn {
+  border: 1px solid rgba(220, 220, 220, 0.1);
+  border-radius: 6px;
+}
+.btn--line {
+  background-color: #00c300;
+  color: white;
+}
+.btn--line:hover {
+  background-color: #00db00;
+  color: white;
+}
+.btn--phone {
+  background-color: #2962ff;
+  color: white;
+}
+.btn--phone:hover {
+  background-color: #2979ff;
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */
