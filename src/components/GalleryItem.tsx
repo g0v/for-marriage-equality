@@ -11,7 +11,7 @@ export interface Props {
 
 class GalleryItem extends Component<Props> {
     render() {
-        const { shift } = this.props
+        const { shift } = this.props;
 
         return (
             <div className="gallery__item">
