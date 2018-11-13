@@ -132,6 +132,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/react-datepicker": "^1.1.7",
     "gh-pages": "^2.0.1"
   }

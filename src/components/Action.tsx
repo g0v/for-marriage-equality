@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 export interface Props {
     type: string
@@ -32,10 +32,10 @@ class Action extends Component<Props> {
         }
         if (type == "line") {
             return (
-                // <CopyToClipboard text={`@${contact}`}
-                // onCopy={() => alert(`已將 LineID @${contact} 複製。`)}>
+                <CopyToClipboard text={`@${contact}`}
+                onCopy={() => alert(`已將 LineID @${contact} 複製。`)}>
                 <button className={cn} title={title}>{buttonText}</button>
-                // </CopyToClipboard>
+                </CopyToClipboard>
             )
         } else {
             return (

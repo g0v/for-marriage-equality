@@ -20,9 +20,15 @@ body {
   background-color: #f8f8f8;
 }
 
+.navbar > .container {
+  padding-left: 25px;
+}
+
 .filter-form {
   display: flex;
   margin-bottom: 1rem;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .filter-form input {
   flex: 5;
@@ -164,6 +170,10 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
+  .navbar > .container {
+    padding-left: 5px;
+  }
+
   .filter-form {
     flex-direction: column;
     margin: 6px 7.5px;
