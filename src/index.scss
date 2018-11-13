@@ -26,9 +26,9 @@ body {
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            margin-bottom: 18px;
             position: relative;
             right: -7px;
+            margin-bottom: 4px;
 
             .label {
                 display: block;
@@ -41,6 +41,7 @@ body {
         &__header {
             font-size: 20px;
             text-align: left;
+            margin-top: 14px;
         }
 
         &__subheader {
