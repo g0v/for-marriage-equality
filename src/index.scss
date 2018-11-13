@@ -1,6 +1,11 @@
+body {
+    background-color: rgb(248,248,248);
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));
+    color: rgb(30,30,30);
 
     &::after {
         content: '';
@@ -9,31 +14,34 @@
 
     &__item {
         display: block;
-        padding: 1em 1em 1.5em 1em;
+        padding: 1em 1em 80px 1em;
         border: 1px solid rgb(220,220,220);
         border-radius: 5px;
         margin: 10px;
+        position: relative;
+        background-color: white;
 
         &__labels-container {
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            margin-bottom: 18px;
             position: relative;
             right: -7px;
+            margin-bottom: 4px;
 
             .label {
                 display: block;
                 padding: 4px 6px;
                 margin: 0px 4px;
-                border: 1px solid rgb(220,220,220);
+                color: white;
             }
         }
 
         &__header {
             font-size: 20px;
             text-align: left;
+            margin-top: 14px;
         }
 
         &__subheader {
@@ -55,7 +63,29 @@
 
         &__text-block {
             text-align: left;
-            font-size: 0.8em;
+            font-size: 1em;
+            font-style: italic;
+        }
+
+        &__contact-container {
+            position: absolute;
+            bottom: 20px;
+
+            .stat {
+                float: left;
+            }
+
+            &__actions-container {
+                display: flex;
+                flex-direction: row;
+                float: left;
+                margin-top: 5px;
+                margin-left: 20px;
+
+                .btn {
+                    margin-right: 10px;
+                }
+            }
         }
     }
 }
@@ -67,10 +97,57 @@
 
     &__label {
         margin-bottom: 0px;
-        font-size: 0.8em;
+        font-size: 0.9em;
+        font-weight: 500;
+    }
+}
+
+.btn {
+    border: 1px solid rgba(220,220,220,0.1);
+    border-radius: 6px;
+
+    &--line {
+        color: #00c300;
+        border: 1px solid #00c300;
+        background-color: white;
+
+        &:hover {
+            background-color: #00c300;
+            color: white;
+        }
     }
 
-    &__figure {
-        font-weight: 500;
+    &--phone {
+        color: #2962ff;
+        border: 1px solid #2962ff;
+        background-color: white;
+
+        &:hover{
+            background-color: #2962ff;
+            color: white;
+        }
+    }
+}
+
+.label {
+
+    &--neutral {
+        background-color: #00bfa5;
+    }
+
+    &--prominent {
+        background-color: #6200ea;
+    }
+
+    &--muted {
+        background-color: #34515e;
+    }
+
+    &--chill {
+        background-color: #0064b7;
+    }
+
+    &--warm {
+        background-color: #ff6d00;
     }
 }

@@ -9,9 +9,9 @@ export interface Props {
 class Gallery extends Component<Props> {
     render() {
         const { shifts } = this.props
-        
+
         return (
-            <div className="gallery">
+            <div className="gallery container">
                 {shifts.map((shift, index) => 
                     {return <GalleryItem key={index} shift={shift}/>})}
             </div>

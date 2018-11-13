@@ -405,15 +405,6 @@ module.exports = {
           },
           {
             test: /\.csv$/,
-            loader: 'csv-loader',
-            options: {
-              dynamicTyping: true,
-              header: true,
-              skipEmptyLines: true
-            }
-          },
-          {
-            test: /\.csv$/,
             use: 'raw-loader'
           },
           // "file" loader makes sure assets end up in the `build` folder.

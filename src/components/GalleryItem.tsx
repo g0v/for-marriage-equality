@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvass from '../canvass';
+import Canvass, { CanvassType } from '../canvass';
 import Label from './Label';
 import KeyValue from './KeyValue';
 import TextBlock from './TextBlock';
@@ -15,9 +15,11 @@ class GalleryItem extends Component<Props> {
 
         return (
             <div className="gallery__item">
-                <div className="gallery__item__labels-container">
-                    <Label text={shift.getType()} />
-                </div>
+                { shift.type !== CanvassType.none &&
+                    <div className="gallery__item__labels-container">
+                        <Label text={shift.getType()} />
+                    </div>
+                }
                 <h2 className="gallery__item__header">
                     {shift.location}
                 </h2>
@@ -40,14 +42,11 @@ class GalleryItem extends Component<Props> {
                         <KeyValue k="團長" v={shift.name} />
                     }
                     <div className="gallery__item__contact-container__actions-container">
-                        { shift.contactInfo !== null && shift.contactInfo.indexOf("FB") != -1 &&
-                            <Action text="Facebook" type="fb" />
+                        { shift.line !== "" &&
+                            <Action contact={shift.line} type="line" />
                         }
-                        { shift.contactInfo !== null && shift.contactInfo.indexOf("LINE") != -1 &&
-                            <Action text="Line" type="line" />
-                        }
-                        { shift.contactInfo !== null && shift.contactInfo.indexOf("PHONE") != -1 &&
-                            <Action text="Phone" type="phone" />
+                        { shift.phone !== "" &&
+                            <Action contact={shift.phone} type="phone" />
                         }
                     </div>
                 </div>

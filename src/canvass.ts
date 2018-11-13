@@ -1,5 +1,5 @@
 export enum CanvassType {
-    spreadFlyers,
+    spreadFlyers = 1,
     dialogue,
     labor,
     streetRoaming,
@@ -17,8 +17,19 @@ function canvassType(raw: string): CanvassType {
     return CanvassType.none;
 }
 
+function getType(c: CanvassType) {
+    switch(c) {
+        case CanvassType.spreadFlyers: return "發文宣";
+        case CanvassType.dialogue: return "對話";
+        case CanvassType.labor: return "代工";
+        case CanvassType.streetRoaming: return "掃街";
+        case CanvassType.stall: return "擺攤";
+        case CanvassType.none: return "無";
+    }
+}
+
 export enum Area {
-    taipeiKeelung,
+    taipeiKeelung=1,
     taoyuanHsinchuMiaoli,
     taichungChanghuaNantou,
     yunlinChiayiTainan,
@@ -28,7 +39,7 @@ export enum Area {
     none
 }
 
-function findArea(raw: string): Area {
+export function findArea(raw: string): Area {
     if(raw===null) return Area.none;
     switch(raw) {
         case "北北基": return Area.taipeiKeelung;
@@ -40,6 +51,29 @@ function findArea(raw: string): Area {
         case "離島外海": return Area.outlyingIslands;
         default: return Area.none;
     }
+}
+
+export function getArea(a: Area): String {
+    switch(a) {
+        case Area.taipeiKeelung: return "北北基";
+        case Area.taoyuanHsinchuMiaoli: return "桃竹苗";
+        case Area.taichungChanghuaNantou: return "中彰投";
+        case Area.yunlinChiayiTainan: return "雲嘉南";
+        case Area.kaohsiungPingtung: return "高屏";
+        case Area.yilanHualienTaitung: return "宜花東";
+        case Area.outlyingIslands: return "離島外海";
+        default: return "無";
+    }
+}
+
+export function getAreas(): Array<String> {
+    let ids: Array<Area> = [];
+    for (const area in Area){
+      if (Number(area)) {
+        ids.push(Number(area));
+      }
+    }
+    return ids.map(getArea);
 }
 
 export default class Canvass {
@@ -54,6 +88,8 @@ export default class Canvass {
     public type: CanvassType;
     public location: string;
     public flyers: number;
+    public line: string;
+    public phone: string;
     constructor(
         rawItem: any
         ) {
@@ -68,6 +104,8 @@ export default class Canvass {
             this.type             = canvassType(rawItem["開團形式"]);
             this.location         = rawItem["地點"];
             this.flyers           = rawItem["預計發出文宣份數"];
+            this.line             = rawItem["Line"] ? rawItem["Line"] : "";
+            this.phone            = rawItem["電話"] ? rawItem["電話"] : "";
         }
     getType(): string {
         switch(this.type) {
@@ -79,15 +117,10 @@ export default class Canvass {
             default: return "無";
         }
     }
-    getArea(): String {
-        switch(this.area) {
-            case Area.taipeiKeelung: return "北北基";
-            case Area.taoyuanHsinchuMiaoli: return "桃竹苗";
-            case Area.taichungChanghuaNantou: return "中彰投";
-            case Area.yunlinChiayiTainan: return "雲嘉南";
-            case Area.kaohsiungPingtung: return "高屏";
-            case Area.yilanHualienTaitung: return "宜花東";
-            default: return "無";
-        }
+    containsQuery(query: string): boolean {
+        return this.forQuery().indexOf(query) != -1;
+    }
+    forQuery(): string {
+        return JSON.stringify(this) + getArea(this.area) + getType(this.type);
     }
 }
