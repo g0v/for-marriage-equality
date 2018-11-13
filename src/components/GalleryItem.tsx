@@ -19,10 +19,12 @@ class GalleryItem extends Component<Props> {
                     <Label text={shift.getType()} />
                 </div>
                 <h2 className="gallery__item__header">
+                    {shift.location}
                 </h2>
                 <h3 className="gallery__item__subheader">
+                    {`${shift.date} ${shift.startTime} ~ ${shift.endTime}`}
                 </h3>
-                <div className="stats-container">
+                <div className="gallery__item__stats-container">
                     { shift.volunteersNeeded !== null &&
                         <KeyValue k="希望志工人數" v={`${shift.volunteersNeeded}`} />
                     }
