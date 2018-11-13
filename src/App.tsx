@@ -4,6 +4,8 @@ import Gallery from "./components/Gallery";
 import Canvass, { Area, getAreas } from "./canvass";
 import Navbar from "./components/Navbar";
 import Selector from "./components/Selector";
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 
 export interface Props {
   shifts: Array<Canvass>;
@@ -12,7 +14,8 @@ export interface Props {
 export interface State {
   area: string;
   query: string;
-  shifts: Array<Canvass>
+  shifts: Array<Canvass>;
+  date: moment.Moment;
 }
 
 function isInArea(a: Canvass): boolean {
@@ -27,12 +30,16 @@ class App extends Component<Props, State> {
   handleQueryUpdate(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({ query: e.target.value });
   }
+  handleDateUpdate(newDate: moment.Moment): void {
+    this.setState({ date: newDate });
+  }
   constructor(props: Props) {
     super(props);
     this.state = {
       area: "區域",
       query: '',
-      shifts: props.shifts
+      shifts: props.shifts,
+      date: moment(),
     }
     console.log(props.shifts[0].forQuery());
   }
@@ -67,6 +74,10 @@ class App extends Component<Props, State> {
               options={getAreas()} 
               onChange={this.handleAreaChange.bind(this)}
               title={this.state.area}
+            />
+            <DatePicker 
+              selected={this.state.date}
+              onChange={this.handleDateUpdate.bind(this)}
             />
           </div>
         </div>
