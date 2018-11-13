@@ -44,7 +44,10 @@ const rawData: any = Papa.parse(text, {
     skipEmptyLines: true
 })['data'];
 
-const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
+const dirtyShifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
+const shifts: Array<Canvass> = dirtyShifts.filter((a: Canvass) => { return a.area !== null })
+
+console.log("Created these shifts.", shifts);
 
 ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 
