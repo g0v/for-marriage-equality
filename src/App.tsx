@@ -36,7 +36,9 @@ class App extends Component<Props, State> {
     console.log(props.shifts[0].forQuery());
   }
   render() {
-    const shifts: Array<Canvass> = this.state.shifts.filter(c => c.containsQuery(this.state.query));
+    const shifts: Array<Canvass> = 
+      this.state.shifts
+        .filter(c => c.containsQuery(this.state.query));
     
     return (
       <div className="App">
