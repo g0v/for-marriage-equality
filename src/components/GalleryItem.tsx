@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvass from '../canvass';
+import Canvass, { CanvassType } from '../canvass';
 import Label from './Label';
 import KeyValue from './KeyValue';
 import TextBlock from './TextBlock';
@@ -15,9 +15,11 @@ class GalleryItem extends Component<Props> {
 
         return (
             <div className="gallery__item">
-                <div className="gallery__item__labels-container">
-                    <Label text={shift.getType()} />
-                </div>
+                { shift.type !== CanvassType.none &&
+                    <div className="gallery__item__labels-container">
+                        <Label text={shift.getType()} />
+                    </div>
+                }
                 <h2 className="gallery__item__header">
                     {shift.location}
                 </h2>
