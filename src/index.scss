@@ -23,9 +23,10 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(310px, 1fr));
     color: rgb(30,30,30);
-
+    padding-bottom: 30px;
+    
     &::after {
         content: '';
         flex-grow: 1000000000;            
@@ -168,5 +169,60 @@ body {
 
     &--warm {
         background-color: #ff6d00;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .filter-form{
+        flex-direction: column;
+        margin: 6px 7.5px;
+
+        .search {
+            margin-bottom: 10px;
+        }
+
+        input {
+            flex: 1;
+            width: 100%;
+        }
+    
+        select {
+            flex: 1;
+            margin-left: 0px;
+            margin-bottom: 10px;
+        }
+    
+        &__date-picker {
+            flex: 1;
+            height: 38px;
+            margin-left: 0px;
+        }   
+    }
+
+    .navbar {
+        padding: .5rem .5rem .5rem .5rem;
+    }
+
+    .navbar-brand {
+        white-space: normal !important;
+        max-width: 70%;
+        font-size: 100%;
+        text-align: left;
+    }
+ 
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .react-datepicker-wrapper {
+        border: 0.5px solid rgb(220,220,220);
+        border-radius: 6px;
+    }
+
+    .react-datepicker__input-container {
+        width: 100%;
+        border: 0.5px solid rgb(220,220,220);
     }
 }
