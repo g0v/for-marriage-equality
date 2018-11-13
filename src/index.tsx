@@ -14,10 +14,13 @@ const rawData: any = Papa.parse(text, {
     dynamicTyping: true,
     header: true,
     skipEmptyLines: true
-})['data'];
+})['data'].filter(removeEmpty);
 
-const dirtyShifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
-const shifts: Array<Canvass> = dirtyShifts.filter((a: Canvass) => { return a.area !== null })
+function removeEmpty(a: any): boolean {
+    return a["區域"]!==null;
+}
+
+const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
 
 console.log("Created these shifts.", shifts);
 
