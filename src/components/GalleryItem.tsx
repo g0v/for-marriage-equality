@@ -12,12 +12,15 @@ export interface Props {
 class GalleryItem extends Component<Props> {
     render() {
         const { shift } = this.props;
-
+        var labels = [];
+        for (var i = 0; i < shift.types.length; i++) {
+            labels.push(<Label key={i} text={shift.getType(shift.types[i])} />)
+        }
         return (
             <div className="gallery__item">
-                { shift.type !== CanvassType.none &&
+                { shift.types.length > 0 &&
                     <div className="gallery__item__labels-container">
-                        <Label text={shift.getType()} />
+                    {labels}
                     </div>
                 }
                 <h2 className="gallery__item__header">

@@ -34,7 +34,7 @@ export default class TableRow extends Component<Props> {
                 <th scope="col">{this.props.shift.volunteersNeeded}</th>
                 <th scope="col">{this.props.shift.name}</th>
                 <th scope="col">{this.props.shift.contactInfo}</th>
-                <th scope="col">{this.props.shift.type}</th>
+                {/* <th scope="col">{this.props.shift.type}</th> */}
                 <th scope="col">{this.props.shift.flyers}</th>
                 <th scope="col">{this.props.shift.notes}</th>
             </tr>
