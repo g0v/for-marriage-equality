@@ -28,7 +28,7 @@ export enum Area {
     none
 }
 
-function findArea(raw: string): Area {
+export function findArea(raw: string): Area {
     if(raw===null) return Area.none;
     switch(raw) {
         case "北北基": return Area.taipeiKeelung;
