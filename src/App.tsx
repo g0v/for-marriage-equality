@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import Gallery from './components/Gallery';
+import Canvass from './index';
 
-class App extends Component {
+export interface Props {
+  shifts: Array<Canvass>;
+}
+
+class App extends Component<Props> {
   render() {
+    const { shifts } = this.props;
+
     return (
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,6 +32,7 @@ class App extends Component {
             </ul>
           </div>
         </nav>
+        <Gallery shifts={shifts} />
       </div>
       );
     }

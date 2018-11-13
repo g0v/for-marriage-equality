@@ -8,7 +8,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-class Canvass {
+export default class Canvass {
     public notes: string;
     public area: string;
     public name: string;
@@ -46,7 +46,7 @@ const rawData: any = Papa.parse(text, {
 
 const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
