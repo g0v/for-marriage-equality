@@ -10,7 +10,7 @@ export interface Props {
 }
 
 export interface State {
-  area: Area;
+  area: string;
   query: string;
   shifts: Array<Canvass>
 }
@@ -20,26 +20,32 @@ function isInArea(a: Canvass): boolean {
 }
 
 class App extends Component<Props, State> {
-  handleAreaChange(newArea: Area): void {
+  handleAreaChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    const newArea = e.target.value;
     this.setState({ area: newArea });
   }
-  handleQueryUpdate(e: any) {
+  handleQueryUpdate(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({ query: e.target.value });
   }
   constructor(props: Props) {
     super(props);
     this.state = {
-      area: 0,
+      area: "區域",
       query: '',
       shifts: props.shifts
     }
     console.log(props.shifts[0].forQuery());
   }
+  areaFilter(c: Canvass): boolean {
+    if(this.state.area === "無" || this.state.area === "區域") return true;
+    return c.containsQuery(this.state.area);
+  }
   render() {
     const shifts: Array<Canvass> = 
       this.state.shifts
-        .filter(c => c.containsQuery(this.state.query));
-    
+        .filter(c => c.containsQuery(this.state.query))
+        .filter(this.areaFilter.bind(this));
+  
     return (
       <div className="App">
         <Navbar />
@@ -56,7 +62,12 @@ class App extends Component<Props, State> {
                 onChange={this.handleQueryUpdate.bind(this)}
               />
             </div>
-            <Selector defaultTitle="區域" options={getAreas()} />
+            <Selector 
+              defaultTitle="區域"
+              options={getAreas()} 
+              onChange={this.handleAreaChange.bind(this)}
+              title={this.state.area}
+            />
           </div>
         </div>
         <Gallery shifts={shifts} />
