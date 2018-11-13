@@ -4,7 +4,8 @@ body {
 
 .filter-form {
     display: flex;
-
+    margin-bottom: 1rem;
+    
     input {
         flex: 5;
     }
@@ -26,7 +27,7 @@ body {
     grid-template-columns: repeat(auto-fill,minmax(310px, 1fr));
     color: rgb(30,30,30);
     padding-bottom: 30px;
-    
+
     &::after {
         content: '';
         flex-grow: 1000000000;            

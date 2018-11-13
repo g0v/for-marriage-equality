@@ -4,6 +4,7 @@ body {
 
 .filter-form {
   display: flex;
+  margin-bottom: 1rem;
 }
 .filter-form input {
   flex: 5;
