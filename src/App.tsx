@@ -11,11 +11,13 @@ export interface Props {
   shifts: Array<Canvass>;
 }
 
+type MaybeMoment = moment.Moment | null;
+
 export interface State {
   area: string;
   query: string;
   shifts: Array<Canvass>;
-  date: moment.Moment;
+  date: MaybeMoment;
 }
 
 function isInArea(a: Canvass): boolean {
@@ -39,7 +41,7 @@ class App extends Component<Props, State> {
       area: "區域",
       query: '',
       shifts: props.shifts,
-      date: moment(),
+      date: null,
     }
     console.log(props.shifts[0].forQuery());
   }
