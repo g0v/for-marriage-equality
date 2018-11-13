@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Canvass from './canvass';
-import Table from './table';
 
-type Props = {
-  shifts: Array<Canvass>
+import Gallery from './components/Gallery';
+import Canvass from './canvass';
+
+export interface Props {
+  shifts: Array<Canvass>;
 }
 
 class App extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
   render() {
-    console.log(this.props.shifts);
+    const { shifts } = this.props;
+    
     return (
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,7 +33,8 @@ class App extends Component<Props> {
             </ul>
           </div>
         </nav>
-        <Table shifts={this.props.shifts} />
+
+        <Gallery shifts={shifts} />
       </div>
       );
     }
