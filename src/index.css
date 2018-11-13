@@ -1,6 +1,11 @@
+body {
+  background-color: #f8f8f8;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  color: #1e1e1e;
 }
 .gallery::after {
   content: "";
@@ -13,6 +18,7 @@
   border-radius: 5px;
   margin: 10px;
   position: relative;
+  background-color: white;
 }
 .gallery__item__labels-container {
   display: flex;
@@ -27,7 +33,7 @@
   display: block;
   padding: 4px 6px;
   margin: 0px 4px;
-  border: 1px solid gainsboro;
+  color: white;
 }
 .gallery__item__header {
   font-size: 20px;
@@ -86,20 +92,38 @@
   border-radius: 6px;
 }
 .btn--line {
+  color: #00c300;
+  border: 1px solid #00c300;
+  background-color: white;
+}
+.btn--line:hover {
   background-color: #00c300;
   color: white;
 }
-.btn--line:hover {
-  background-color: #00db00;
-  color: white;
-}
 .btn--phone {
+  color: #2962ff;
+  border: 1px solid #2962ff;
+  background-color: white;
+}
+.btn--phone:hover {
   background-color: #2962ff;
   color: white;
 }
-.btn--phone:hover {
-  background-color: #2979ff;
-  color: white;
+
+.label--neutral {
+  background-color: #00bfa5;
+}
+.label--prominent {
+  background-color: #6200ea;
+}
+.label--muted {
+  background-color: #34515e;
+}
+.label--chill {
+  background-color: #0064b7;
+}
+.label--warm {
+  background-color: #ff6d00;
 }
 
 /*# sourceMappingURL=index.css.map */

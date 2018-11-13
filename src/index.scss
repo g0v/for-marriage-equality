@@ -1,6 +1,11 @@
+body {
+    background-color: rgb(248,248,248);
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));
+    color: rgb(30,30,30);
 
     &::after {
         content: '';
@@ -14,6 +19,7 @@
         border-radius: 5px;
         margin: 10px;
         position: relative;
+        background-color: white;
 
         &__labels-container {
             display: flex;
@@ -28,7 +34,7 @@
                 display: block;
                 padding: 4px 6px;
                 margin: 0px 4px;
-                border: 1px solid rgb(220,220,220);
+                color: white;
             }
         }
 
@@ -100,22 +106,47 @@
     border-radius: 6px;
 
     &--line {
-        background-color: #00c300;
-        color: white;
+        color: #00c300;
+        border: 1px solid #00c300;
+        background-color: white;
 
         &:hover {
-            background-color: #00db00;
+            background-color: #00c300;
             color: white;
         }
     }
 
     &--phone {
-        background-color: #2962ff;
-        color: white;
+        color: #2962ff;
+        border: 1px solid #2962ff;
+        background-color: white;
 
         &:hover{
-            background-color: #2979ff;
+            background-color: #2962ff;
             color: white;
         }
+    }
+}
+
+.label {
+
+    &--neutral {
+        background-color: #00bfa5;
+    }
+
+    &--prominent {
+        background-color: #6200ea;
+    }
+
+    &--muted {
+        background-color: #34515e;
+    }
+
+    &--chill {
+        background-color: #0064b7;
+    }
+
+    &--warm {
+        background-color: #ff6d00;
     }
 }
