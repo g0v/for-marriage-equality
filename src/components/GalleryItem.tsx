@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvass from '../index';
+import Canvass from '../canvass';
 import Label from './Label';
 import KeyValue from './KeyValue';
 import TextBlock from './TextBlock';
@@ -11,7 +11,7 @@ export interface Props {
 
 class GalleryItem extends Component<Props> {
     render() {
-        const { shift } = this.props
+        const { shift } = this.props;
 
         return (
             <div className="gallery__item">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Gallery from './components/Gallery';
-import Canvass from './index';
+import Canvass from './canvass';
 
 export interface Props {
   shifts: Array<Canvass>;

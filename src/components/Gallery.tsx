@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GalleryItem from './GalleryItem';
-import Canvass from '../index';
+import Canvass from '../canvass';
 
 export interface Props {
     shifts: Array<Canvass>
