@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Canvass from './canvass';
 
-class App extends Component {
+type Props = {
+  shifts: Array<Canvass>
+}
+
+class App extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
   render() {
+    console.log(this.props.shifts);
     return (
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
