@@ -4,6 +4,7 @@ import Gallery from "./components/Gallery";
 import Canvass, { Area, getAreas } from "./canvass";
 import Navbar from "./components/Navbar";
 import Selector from "./components/Selector";
+import G0vbar from "./components/g0vbar";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -35,6 +36,13 @@ class App extends Component<Props, State> {
   handleDateUpdate(newDate: moment.Moment): void {
     this.setState({ date: newDate });
   }
+  isOnThisDate(c: Canvass): boolean {
+    if(this.state.date===null) return true;
+    moment.locale("zh-tw");
+    const canvassDate = moment(c.date.substring(0, c.date.length-3), "MM/DD");
+    if(this.state.date.isSame(canvassDate, "day")) return true;
+    return false;
+  }
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -53,10 +61,12 @@ class App extends Component<Props, State> {
     const shifts: Array<Canvass> = 
       this.state.shifts
         .filter(c => c.containsQuery(this.state.query))
-        .filter(this.areaFilter.bind(this));
+        .filter(this.areaFilter.bind(this))
+        .filter(this.isOnThisDate.bind(this));
   
     return (
       <div className="App">
+        <G0vbar />
         <Navbar />
         <div className="container">
           <div className="row filter-form">

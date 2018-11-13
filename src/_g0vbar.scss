@@ -1,0 +1,17 @@
+.g0vbar {
+    background: #343A40;
+    &-content {
+        color: white;
+        font-size: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+    a {
+        text-decoration: underline;
+        color: white;
+    }
+    img {
+        margin-right: 10px;
+    }
+}
