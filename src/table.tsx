@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Canvass from './canvass';
+import TableRow from './tablerow';
 
 type Props = {
     shifts: Array<Canvass>
@@ -10,39 +11,29 @@ export default class Table extends Component<Props> {
         super(props);
     }
     render() {
+        console.log("Table received: ", this.props.shifts)
         return (
-            <div className="App">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">區域</th>
+                        <th scope="col">開團日期</th>
+                        <th scope="col">開始時間</th>
+                        <th scope="col">結束時間</th>
+                        <th scope="col">地點</th>
+                        <th scope="col">希望志工人數</th>
+                        <th scope="col">團長名稱</th>
+                        <th scope="col">團長聯絡方式</th>
+                        <th scope="col">開團形式</th>
+                        <th scope="col">預計發出文宣份數</th>
+                        <th scope="col">備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.props.shifts.map(a => {return <TableRow shift={a} /> })}
+                </tbody>
+            </table>
+
         );
     }
 }
