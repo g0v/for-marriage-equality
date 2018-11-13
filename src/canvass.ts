@@ -70,8 +70,8 @@ export default class Canvass {
             this.type             = canvassType(rawItem["開團形式"]);
             this.location         = rawItem["地點"];
             this.flyers           = rawItem["預計發出文宣份數"];
-            this.line             = rawItem["Line"];
-            this.phone             = rawItem["電話"];
+            this.line             = rawItem["Line"] ? rawItem["Line"] : "";
+            this.phone            = rawItem["電話"] ? rawItem["電話"] : "";
         }
     getType(): string {
         switch(this.type) {

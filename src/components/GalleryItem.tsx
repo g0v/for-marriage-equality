@@ -40,10 +40,10 @@ class GalleryItem extends Component<Props> {
                         <KeyValue k="團長" v={shift.name} />
                     }
                     <div className="gallery__item__contact-container__actions-container">
-                        { shift.line !== null &&
+                        { shift.line !== "" &&
                             <Action contact={shift.line} type="line" />
                         }
-                        { shift.contactInfo !== null &&
+                        { shift.phone !== "" &&
                             <Action contact={shift.phone} type="phone" />
                         }
                     </div>
