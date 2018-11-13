@@ -50,6 +50,7 @@
 .gallery__item__text-block {
   text-align: left;
   font-size: 1em;
+  font-style: italic;
 }
 .gallery__item__contact-container {
   position: absolute;
