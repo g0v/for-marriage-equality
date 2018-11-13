@@ -18,7 +18,7 @@ function canvassType(raw: string): CanvassType {
 }
 
 export enum Area {
-    taipeiKeelung,
+    taipeiKeelung=1,
     taoyuanHsinchuMiaoli,
     taichungChanghuaNantou,
     yunlinChiayiTainan,
@@ -40,6 +40,29 @@ export function findArea(raw: string): Area {
         case "離島外海": return Area.outlyingIslands;
         default: return Area.none;
     }
+}
+
+export function getArea(a: Area): String {
+    switch(a) {
+        case Area.taipeiKeelung: return "北北基";
+        case Area.taoyuanHsinchuMiaoli: return "桃竹苗";
+        case Area.taichungChanghuaNantou: return "中彰投";
+        case Area.yunlinChiayiTainan: return "雲嘉南";
+        case Area.kaohsiungPingtung: return "高屏";
+        case Area.yilanHualienTaitung: return "宜花東";
+        case Area.outlyingIslands: return "離島外海";
+        default: return "無";
+    }
+}
+
+export function getAreas(): Array<String> {
+    let ids: Array<Area> = [];
+    for (const area in Area){
+      if (Number(area)) {
+        ids.push(Number(area));
+      }
+    }
+    return ids.map(getArea);
 }
 
 export default class Canvass {
@@ -76,17 +99,6 @@ export default class Canvass {
             case CanvassType.labor: return "代工";
             case CanvassType.streetRoaming: return "掃街";
             case CanvassType.stall: return "擺攤";
-            default: return "無";
-        }
-    }
-    getArea(): String {
-        switch(this.area) {
-            case Area.taipeiKeelung: return "北北基";
-            case Area.taoyuanHsinchuMiaoli: return "桃竹苗";
-            case Area.taichungChanghuaNantou: return "中彰投";
-            case Area.yunlinChiayiTainan: return "雲嘉南";
-            case Area.kaohsiungPingtung: return "高屏";
-            case Area.yilanHualienTaitung: return "宜花東";
             default: return "無";
         }
     }
