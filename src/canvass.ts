@@ -17,9 +17,34 @@ function canvassType(raw: string): CanvassType {
     return CanvassType.none;
 }
 
+export enum Area {
+    taipeiKeelung,
+    taoyuanHsinchuMiaoli,
+    taichungChanghuaNantou,
+    yunlinChiayiTainan,
+    kaohsiungPingtung,
+    yilanHualienTaitung,
+    outlyingIslands,
+    none
+}
+
+function findArea(raw: string): Area {
+    if(raw===null) return Area.none;
+    switch(raw) {
+        case "北北基": return Area.taipeiKeelung;
+        case "桃竹苗": return Area.taoyuanHsinchuMiaoli;
+        case "中彰投": return Area.taichungChanghuaNantou;
+        case "雲嘉南": return Area.yunlinChiayiTainan;
+        case "高屏": return Area.kaohsiungPingtung;
+        case "宜花東": return Area.yilanHualienTaitung;
+        case "離島外海": return Area.outlyingIslands;
+        default: return Area.none;
+    }
+}
+
 export default class Canvass {
     public notes: string;
-    public area: string;
+    public area: Area;
     public name: string;
     public contactInfo: string;
     public volunteersNeeded: number;
@@ -32,8 +57,8 @@ export default class Canvass {
     constructor(
         rawItem: any
         ) {
-            this.notes            = rawItem["備註"];
-            this.area             = rawItem["區域"];
+            this.notes            = rawItem["備註"] ? rawItem["備註"] : "";
+            this.area             = findArea(rawItem["區域"]);
             this.date             = rawItem["開團日期"];
             this.name             = rawItem["團長名稱"];
             this.contactInfo      = rawItem["團長聯絡方式"];
@@ -46,18 +71,23 @@ export default class Canvass {
         }
     getType(): string {
         switch(this.type) {
-            case CanvassType.spreadFlyers:
-            return "發文宣";
-            case CanvassType.dialogue:
-                return "對話";
-            case CanvassType.labor:
-                return "代工";
-            case CanvassType.streetRoaming:
-                return "掃街";
-            case CanvassType.stall:
-                return "擺攤";
-            default:
-                return "無";
+            case CanvassType.spreadFlyers: return "發文宣";
+            case CanvassType.dialogue: return "對話";
+            case CanvassType.labor: return "代工";
+            case CanvassType.streetRoaming: return "掃街";
+            case CanvassType.stall: return "擺攤";
+            default: return "無";
+        }
+    }
+    getArea(): String {
+        switch(this.area) {
+            case Area.taipeiKeelung: return "北北基";
+            case Area.taoyuanHsinchuMiaoli: return "桃竹苗";
+            case Area.taichungChanghuaNantou: return "中彰投";
+            case Area.yunlinChiayiTainan: return "雲嘉南";
+            case Area.kaohsiungPingtung: return "高屏";
+            case Area.yilanHualienTaitung: return "宜花東";
+            default: return "無";
         }
     }
 }
