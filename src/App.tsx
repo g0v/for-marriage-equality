@@ -4,7 +4,7 @@ import Gallery from "./components/Gallery";
 import Canvass, { Area, getAreas } from "./canvass";
 import Navbar from "./components/Navbar";
 import Selector from "./components/Selector";
--import G0vbar from "./components/g0vbar";                                                                          │
+import G0vbar from "./components/g0vbar";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
