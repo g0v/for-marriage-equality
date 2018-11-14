@@ -66,7 +66,7 @@ class App extends Component<Props, State> {
   
     return (
       <div className="App">
-        <G0vbar />
+        <G0vbar width="1137px" />
         <Navbar />
         <div className="container">
           <div className="row filter-form">
