@@ -40,8 +40,9 @@ body {
     }
 
     &__item {
-        display: block;
-        padding: 1em 1em 80px 1em;
+        display: flex;
+        flex-direction: column;
+        padding: 1em 1em 1em 1em;
         border: 1px solid rgb(220,220,220);
         border-radius: 5px;
         margin: 10px;
@@ -55,7 +56,7 @@ body {
             align-items: center;
             position: relative;
             right: -7px;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
 
             .label {
                 display: block;
@@ -68,7 +69,7 @@ body {
         &__header {
             font-size: 20px;
             text-align: left;
-            margin-top: 14px;
+            margin-top: 4px;
         }
 
         &__subheader {
@@ -80,7 +81,6 @@ body {
         &__stats-container {
             display: flex;
             flex-direction: row;
-            margin-top: 1em;
             margin-bottom: 16px;
 
             .stat {
@@ -95,11 +95,21 @@ body {
         }
 
         &__contact-container {
-            position: absolute;
-            bottom: 20px;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
 
             .stat {
-                float: left;
+                margin-right: 1em;
+                margin-bottom: .75em;
+
+                &__figure {
+                    word-break: break-all;
+                }
+            }
+
+            .stat:first-child {
+                min-width: 80px;
             }
 
             &__actions-container {
@@ -115,6 +125,10 @@ body {
             }
         }
     }
+}
+
+.grow {
+    flex-grow: 1;
 }
 
 .stat {

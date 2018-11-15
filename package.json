@@ -28,6 +28,7 @@
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
     "g0v-banner": "^1.0.10",
+    "get-sheet-done": "^0.1.4",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
@@ -37,7 +38,6 @@
     "mini-css-extract-plugin": "0.4.3",
     "moment": "^2.22.2",
     "optimize-css-assets-webpack-plugin": "5.0.1",
-    "papaparse": "^4.6.1",
     "pnp-webpack-plugin": "1.1.0",
     "popper.js": "^1.14.5",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -126,15 +126,14 @@
     ]
   },
   "devDependencies": {
-    "@types/react-copy-to-clipboard": "^4.2.6",
-    "@types/react-datepicker": "^1.1.7",
-    "gh-pages": "^2.0.1",
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.5",
-    "@types/papaparse": "^4.5.5",
     "@types/react": "^16.7.3",
-    "@types/react-dom": "^16.0.9"
+    "@types/react-copy-to-clipboard": "^4.2.6",
+    "@types/react-datepicker": "^1.1.7",
+    "@types/react-dom": "^16.0.9",
+    "gh-pages": "^2.0.1"
   }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Papa from 'papaparse';
 
 import './index.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,23 +11,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import App from './App';
 import Canvass from './canvass';
 import * as serviceWorker from './serviceWorker';
+import GetSheetDone from 'get-sheet-done';
 
-const text: string = require('./data/canvass_times.csv');
-const rawData: any = Papa.parse(text, {          
-    dynamicTyping: true,
-    header: true,
-    skipEmptyLines: true
-})['data'].filter(removeEmpty);
+GetSheetDone.labeledCols("1Fc0BbQW6GWIlOtK5woKI-6zCjQ_V874KUzo8gcFUdnY").then((sheet:any) => {
+    var rawData = sheet.data
+    const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
 
-function removeEmpty(a: any): boolean {
-    return a["區域"]!==null;
-}
+    console.log("Created these shifts.", shifts);
 
-const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
+    ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 
-console.log("Created these shifts.", shifts);
-
-ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
+})
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
