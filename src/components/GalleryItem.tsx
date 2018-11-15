@@ -29,7 +29,7 @@ class GalleryItem extends Component<Props> {
                 <h3 className="gallery__item__subheader">
                     {`${shift.date} ${shift.startTime} ~ ${shift.endTime}`}
                 </h3>
-                <div className="gallery__item__stats-container">
+                <div className={"gallery__item__stats-container" + (shift.notes ? "" : " grow")}>
                     { shift.volunteersNeeded !== null &&
                         <KeyValue k="希望志工人數" v={`${shift.volunteersNeeded}`} />
                     }
@@ -43,6 +43,9 @@ class GalleryItem extends Component<Props> {
                 <div className="gallery__item__contact-container">
                     { shift.name && 
                         <KeyValue k="團長" v={shift.name} />
+                    }
+                    {shift.contactInfo &&
+                        <KeyValue k="聯絡方式" v={shift.contactInfo} />
                     }
                     <div className="gallery__item__contact-container__actions-container">
                         { shift.line !== "" &&

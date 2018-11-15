@@ -1,22 +1,3 @@
-.g0vbar {
-  background: #343A40;
-}
-.g0vbar-content {
-  color: white;
-  font-size: 12px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: left;
-  padding-left: 25px;
-}
-.g0vbar a {
-  text-decoration: underline;
-  color: white;
-}
-.g0vbar img {
-  margin-right: 10px;
-}
-
 body {
   background-color: #f8f8f8;
 }
@@ -55,8 +36,9 @@ body {
   flex-grow: 1000000000;
 }
 .gallery__item {
-  display: block;
-  padding: 1em 1em 80px 1em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em 1em 1em;
   border: 1px solid gainsboro;
   border-radius: 5px;
   margin: 10px;
@@ -70,7 +52,7 @@ body {
   align-items: center;
   position: relative;
   right: -7px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .gallery__item__labels-container .label {
   display: block;
@@ -81,7 +63,7 @@ body {
 .gallery__item__header {
   font-size: 20px;
   text-align: left;
-  margin-top: 14px;
+  margin-top: 8px;
 }
 .gallery__item__subheader {
   font-size: 16px;
@@ -91,7 +73,6 @@ body {
 .gallery__item__stats-container {
   display: flex;
   flex-direction: row;
-  margin-top: 1em;
   margin-bottom: 16px;
 }
 .gallery__item__stats-container .stat {
@@ -103,11 +84,19 @@ body {
   font-style: italic;
 }
 .gallery__item__contact-container {
-  position: absolute;
-  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .gallery__item__contact-container .stat {
-  float: left;
+  margin-right: 1em;
+  margin-bottom: 0.75em;
+}
+.gallery__item__contact-container .stat__figure {
+  word-break: break-all;
+}
+.gallery__item__contact-container .stat:first-child {
+  min-width: 80px;
 }
 .gallery__item__contact-container__actions-container {
   display: flex;
@@ -118,6 +107,10 @@ body {
 }
 .gallery__item__contact-container__actions-container .btn {
   margin-right: 10px;
+}
+
+.grow {
+  flex-grow: 1;
 }
 
 .stat {
