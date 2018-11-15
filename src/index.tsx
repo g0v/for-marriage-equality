@@ -7,9 +7,9 @@ import Papa from 'papaparse';
 import './index.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-import G0vbar from 'g0v-banner';
+// import G0vbar from 'g0v-banner';
 
-// import App from './App';
+import App from './App';
 import Canvass from './canvass';
 import * as serviceWorker from './serviceWorker';
 
@@ -28,7 +28,7 @@ const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) }
 
 console.log("Created these shifts.", shifts);
 
-ReactDOM.render(<G0vbar width="1000px" />, document.getElementById('root'));
+ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
