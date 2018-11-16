@@ -24,7 +24,7 @@ class GalleryItem extends Component<Props> {
                     <div className="gallery__item__labels-container">
                     {labels}
                     {shift.distance && shift.distance != 9999 && 
-                        <Label key={-1} text={`距離約 ${shift.distance.toFixed(2)} 公里`} />
+                        <Label key={-1} text={`約距 ${shift.distance.toFixed(2)} 公里`} />
                     }
                     </div>
                 }
@@ -58,6 +58,9 @@ class GalleryItem extends Component<Props> {
                         }
                         { shift.phone !== "" &&
                             <Action contact={shift.phone} type="phone" />
+                        }
+                        {(shift.lat && shift.lng) && 
+                            <Action contact={`${shift.lat},${shift.lng}`} type="location" />
                         }
                     </div>
                 </div>

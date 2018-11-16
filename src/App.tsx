@@ -27,6 +27,7 @@ export interface State {
   lat?: number;
   lng?: number;
   orderByDistance: boolean;
+  loadingLocation: boolean;
 }
 
 function isInArea(a: Canvass): boolean {
@@ -52,10 +53,12 @@ class App extends Component<Props, State> {
     return false;
   }
   handleLocationRequest(e: React.MouseEvent<HTMLButtonElement>): void {
+    this.setState({loadingLocation: true})
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.applyCurrentLocation.bind(this))
     } else {
       alert("此瀏覽器不支援定位搜尋")
+      this.setState({loadingLocation: false})
     }
   }
 
@@ -79,7 +82,7 @@ class App extends Component<Props, State> {
       return a.distance! - b.distance!
     })
     console.log(this.state);
-    this.setState({ orderByDistance: true })
+    this.setState({ orderByDistance: true, loadingLocation: false })
     // sort using distance
   }
 
@@ -93,6 +96,7 @@ class App extends Component<Props, State> {
       lat: undefined,
       lng: undefined,
       orderByDistance: false,
+      loadingLocation: false,
     }
     console.log(props.shifts[0].forQuery());
   }
@@ -113,7 +117,7 @@ class App extends Component<Props, State> {
         <Navbar />
         <div className="container">
           <div className="row filter-form">
-            <Button buttonText="定位尋找附近開團" type={ButtonType.primary} onClick={this.handleLocationRequest.bind(this)} />
+            <Button buttonText={this.state.loadingLocation ? "定位中..." : "定位尋找附近開團"} type={ButtonType.primary} onClick={this.handleLocationRequest.bind(this)} />
             <DatePicker 
               selected={this.state.date}
               onChange={this.handleDateUpdate.bind(this)}

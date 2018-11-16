@@ -45,6 +45,12 @@ body {
   margin: 10px;
   position: relative;
   background-color: white;
+  transition: box-shadow 0.3s cubic-bezier(0, 0, 0.2, 1), transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+.gallery__item:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1.03);
+  z-index: 99;
 }
 .gallery__item__labels-container {
   display: flex;
@@ -99,12 +105,15 @@ body {
 .gallery__item__contact-container .stat:first-child {
   min-width: 80px;
 }
+.gallery__item__contact-container .stat:last-child {
+  margin-right: 1.5em;
+}
 .gallery__item__contact-container__actions-container {
   display: flex;
   flex-direction: row;
   float: left;
   margin-top: 5px;
-  margin-left: 20px;
+  margin-bottom: 1em;
 }
 .gallery__item__contact-container__actions-container .btn {
   margin-right: 10px;
@@ -147,6 +156,15 @@ body {
   background-color: #2962ff;
   color: white;
 }
+.btn--map {
+  color: #009624;
+  border: 1px solid #009624;
+  background-color: white;
+}
+.btn--map:hover {
+  background-color: #009624;
+  color: white;
+}
 .btn--primary {
   color: #2962ff;
   border: 1px solid #2962ff;
@@ -158,19 +176,19 @@ body {
 }
 
 .label--neutral {
-  background-color: #00bfa5;
+  background-color: #78D98B;
 }
 .label--prominent {
-  background-color: #6200ea;
+  background-color: #E8685A;
 }
 .label--muted {
-  background-color: #34515e;
+  background-color: #64ABF4;
 }
 .label--chill {
-  background-color: #0064b7;
+  background-color: #9C80EF;
 }
 .label--warm {
-  background-color: #ff6d00;
+  background-color: #EAD260;
 }
 .label--distance {
   background-color: palevioletred;

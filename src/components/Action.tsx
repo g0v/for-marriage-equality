@@ -27,6 +27,11 @@ class Action extends Component<Props> {
                 title = `${contact}`
                 link = `tel://${contact}`
                 break;
+            case "location":
+                cn += " btn--primary"
+                buttonText = `大略位置`
+                title = 'Google 地圖'
+                link = `https://www.google.com/maps/search/?api=1&query=${contact}`
             default:
             break;
         }

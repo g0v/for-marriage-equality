@@ -49,6 +49,13 @@ body {
         margin: 10px;
         position: relative;
         background-color: white;
+        transition: box-shadow 0.3s cubic-bezier(0.0, 0.0, 0.2, 1), transform 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
+
+        &:hover {
+            box-shadow: 0px 6px 10px rgba(0,0,0,0.05);
+            transform: scale(1.03);
+            z-index: 99;
+        }
 
         &__labels-container {
             display: flex;
@@ -113,12 +120,16 @@ body {
                 min-width: 80px;
             }
 
+            .stat:last-child {
+                margin-right: 1.5em;
+            }
+
             &__actions-container {
                 display: flex;
                 flex-direction: row;
                 float: left;
                 margin-top: 5px;
-                margin-left: 20px;
+                margin-bottom: 1em;
 
                 .btn {
                     margin-right: 10px;
@@ -170,6 +181,17 @@ body {
         }
     }
 
+    &--map {
+        color: #009624;
+        border: 1px solid #009624;
+        background-color: white;
+
+        &:hover{
+            background-color: #009624;
+            color: white;
+        }
+    }
+
     &--primary {
         color: #2962ff;
         border: 1px solid #2962ff;
@@ -185,23 +207,23 @@ body {
 .label {
 
     &--neutral {
-        background-color: #00bfa5;
+        background-color: #78D98B;
     }
 
     &--prominent {
-        background-color: #6200ea;
+        background-color: #E8685A;
     }
 
     &--muted {
-        background-color: #34515e;
+        background-color: #64ABF4;
     }
 
     &--chill {
-        background-color: #0064b7;
+        background-color: #9C80EF;
     }
 
     &--warm {
-        background-color: #ff6d00;
+        background-color: #EAD260;
     }
 
     &--distance {
