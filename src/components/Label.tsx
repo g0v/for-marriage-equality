@@ -26,6 +26,7 @@ class Label extends Component<Props> {
             break;
 
             default:
+                cn += " label--distance"
             break;
         }
         return (

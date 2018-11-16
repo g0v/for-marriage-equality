@@ -4,9 +4,14 @@ import Gallery from "./components/Gallery";
 import Canvass, { Area, getAreas } from "./canvass";
 import Navbar from "./components/Navbar";
 import Selector from "./components/Selector";
+import Button, { ButtonType } from "./components/Button";
+
 import G0vbar from "g0v-banner";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+
+import distance from '@turf/distance';
+import {point} from '@turf/helpers';
 
 export interface Props {
   shifts: Array<Canvass>;
@@ -19,6 +24,9 @@ export interface State {
   query: string;
   shifts: Array<Canvass>;
   date: MaybeMoment;
+  lat?: number;
+  lng?: number;
+  orderByDistance: boolean;
 }
 
 function isInArea(a: Canvass): boolean {
@@ -43,6 +51,38 @@ class App extends Component<Props, State> {
     if(this.state.date.isSame(canvassDate, "day")) return true;
     return false;
   }
+  handleLocationRequest(e: React.MouseEvent<HTMLButtonElement>): void {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.applyCurrentLocation.bind(this))
+    } else {
+      alert("此瀏覽器不支援定位搜尋")
+    }
+  }
+
+  applyCurrentLocation(location:any) {
+    this.state.shifts.sort(function(a: Canvass, b: Canvass){
+      console.log(a)
+      console.log(b)
+      var position = point([location.coords.latitude, location.coords.longitude])
+      if (a.lat && a.lng) {
+        var aPos = point([a.lat, a.lng])
+        a.distance = distance(position, aPos)
+      } else {
+        a.distance = 9999
+      }
+      if (b.lat && b.lng) {
+        var bPos = point([b.lat, b.lng])
+        b.distance = distance(position, bPos)
+      } else {
+        b.distance = 9999
+      }        
+      return a.distance! - b.distance!
+    })
+    console.log(this.state);
+    this.setState({ orderByDistance: true })
+    // sort using distance
+  }
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -50,6 +90,9 @@ class App extends Component<Props, State> {
       query: '',
       shifts: props.shifts,
       date: null,
+      lat: undefined,
+      lng: undefined,
+      orderByDistance: false,
     }
     console.log(props.shifts[0].forQuery());
   }
@@ -70,6 +113,23 @@ class App extends Component<Props, State> {
         <Navbar />
         <div className="container">
           <div className="row filter-form">
+            <Button buttonText="定位尋找附近開團" type={ButtonType.primary} onClick={this.handleLocationRequest.bind(this)} />
+            <DatePicker 
+              selected={this.state.date}
+              onChange={this.handleDateUpdate.bind(this)}
+              className="filter-form__date-picker"
+              minDate={moment()}
+              maxDate={moment("2018-11-24")}
+              showDisabledMonthNavigation
+              placeholderText="選擇日期"
+            />
+            <Selector 
+              defaultValue="區域"
+              defaultTitle="區域"
+              options={getAreas()} 
+              onChange={this.handleAreaChange.bind(this)}
+              title={this.state.area}
+            />
             <div className="search">
               <input
                 type="search"
@@ -81,25 +141,9 @@ class App extends Component<Props, State> {
                 onChange={this.handleQueryUpdate.bind(this)}
               />
             </div>
-            <Selector 
-              defaultValue="區域"
-              defaultTitle="區域"
-              options={getAreas()} 
-              onChange={this.handleAreaChange.bind(this)}
-              title={this.state.area}
-            />
-            <DatePicker 
-              selected={this.state.date}
-              onChange={this.handleDateUpdate.bind(this)}
-              className="filter-form__date-picker"
-              minDate={moment()}
-              maxDate={moment("2018-11-24")}
-              showDisabledMonthNavigation
-              placeholderText="選擇日期"
-            />
           </div>
         </div>
-        <Gallery shifts={shifts} />
+        <Gallery shifts={shifts} lat={this.state.lat} lng={this.state.lng} />
       </div>
     );
   }

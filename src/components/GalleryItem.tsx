@@ -4,23 +4,28 @@ import Label from './Label';
 import KeyValue from './KeyValue';
 import TextBlock from './TextBlock';
 import Action from './Action';
+import { distance } from '@turf/distance';
 
 export interface Props {
     shift: Canvass
+    distance?: number
 }
 
 class GalleryItem extends Component<Props> {
     render() {
-        const { shift } = this.props;
+        const { shift, distance } = this.props;
         var labels = [];
         for (var i = 0; i < shift.types.length; i++) {
             labels.push(<Label key={i} text={shift.getType(shift.types[i])} />)
         }
         return (
             <div className="gallery__item">
-                { shift.types.length > 0 && shift.types[0] !== CanvassType.none &&
+                { (shift.types.length > 0 && shift.types[0] !== CanvassType.none || shift.distance != 9999) &&
                     <div className="gallery__item__labels-container">
                     {labels}
+                    {shift.distance && shift.distance != 9999 && 
+                        <Label key={-1} text={`距離約 ${shift.distance.toFixed(2)} 公里`} />
+                    }
                     </div>
                 }
                 <h2 className="gallery__item__header">

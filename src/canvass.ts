@@ -84,6 +84,10 @@ export default class Canvass {
     public flyers: number;
     public line: string;
     public phone: string;
+    public lat: number;
+    public lng: number;
+    public distance?: number;
+
     constructor(
         rawItem: any
         ) {
@@ -100,6 +104,8 @@ export default class Canvass {
             this.flyers           = rawItem["預計發出文宣份數"];
             this.line             = rawItem["Line"] ? rawItem["Line"] : "";
             this.phone            = rawItem["電話"] ? rawItem["電話"] : "";
+            this.lat              = rawItem["經緯度"].split(", ")[0];
+            this.lng              = rawItem["經緯度"].split(", ")[1];
         }
     getType(t: CanvassType): string {
         switch(t) {

@@ -59,3 +59,5 @@ declare module '*.module.sass' {
 }
 
 declare module 'get-sheet-done';
+
+declare module '@turf/distance';

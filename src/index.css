@@ -12,15 +12,16 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
-.filter-form input {
-  flex: 5;
+.filter-form .search {
+  flex: 1;
+  margin-left: 1em;
 }
 .filter-form select {
   flex: 1;
   margin-left: 1em;
 }
 .filter-form__date-picker {
-  flex: 5;
+  flex: 1;
   height: 38px;
   margin-left: 1em;
 }
@@ -146,6 +147,15 @@ body {
   background-color: #2962ff;
   color: white;
 }
+.btn--primary {
+  color: #2962ff;
+  border: 1px solid #2962ff;
+  background-color: white;
+}
+.btn--primary:hover {
+  background-color: #2962ff;
+  color: white;
+}
 
 .label--neutral {
   background-color: #00bfa5;
@@ -162,6 +172,9 @@ body {
 .label--warm {
   background-color: #ff6d00;
 }
+.label--distance {
+  background-color: palevioletred;
+}
 
 @media only screen and (max-width: 767px) {
   .navbar > .container {
@@ -172,22 +185,27 @@ body {
     flex-direction: column;
     margin: 6px 7.5px;
   }
-  .filter-form .search {
+  .filter-form .btn {
     margin-bottom: 10px;
   }
-  .filter-form input {
-    flex: 1;
-    width: 100%;
+  .filter-form .search {
+    margin-bottom: 10px;
+    margin-left: 0px;
   }
   .filter-form select {
     flex: 1;
     margin-left: 0px;
     margin-bottom: 10px;
   }
-  .filter-form__date-picker {
+  .filter-form .react-datepicker__input-container {
     flex: 1;
     height: 38px;
     margin-left: 0px;
+  }
+  .filter-form .react-datepicker__input-container input {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 10px;
   }
 
   .navbar {

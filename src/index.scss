@@ -12,8 +12,9 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 
-    input {
-        flex: 5;
+    .search {
+        flex: 1;
+        margin-left: 1em;
     }
 
     select {
@@ -22,7 +23,7 @@ body {
     }
 
     &__date-picker {
-        flex: 5;
+        flex: 1;
         height: 38px;
         margin-left: 1em;
     }    
@@ -168,6 +169,17 @@ body {
             color: white;
         }
     }
+
+    &--primary {
+        color: #2962ff;
+        border: 1px solid #2962ff;
+        background-color: white;
+
+        &:hover{
+            background-color: #2962ff;
+            color: white;
+        }
+    }
 }
 
 .label {
@@ -191,6 +203,11 @@ body {
     &--warm {
         background-color: #ff6d00;
     }
+
+    &--distance {
+        background-color: palevioletred;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -204,13 +221,13 @@ body {
         flex-direction: column;
         margin: 6px 7.5px;
 
-        .search {
+        .btn {
             margin-bottom: 10px;
         }
 
-        input {
-            flex: 1;
-            width: 100%;
+        .search {
+            margin-bottom: 10px;
+            margin-left: 0px;
         }
     
         select {
@@ -219,10 +236,16 @@ body {
             margin-bottom: 10px;
         }
     
-        &__date-picker {
+        .react-datepicker__input-container {
             flex: 1;
             height: 38px;
             margin-left: 0px;
+
+            input {
+                width: 100%;
+                margin-left: 0px;
+                padding-left: 10px;
+            }    
         }   
     }
 
