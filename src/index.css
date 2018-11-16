@@ -66,6 +66,7 @@ body {
   padding: 4px 8px;
   margin: 0px 4px;
   color: white;
+  border-radius: 4px;
 }
 .gallery__item__header {
   font-size: 20px;
