@@ -44,7 +44,7 @@ class Action extends Component<Props> {
             )
         } else {
             return (
-                <a className={cn} title={title} href={link}>
+                <a className={cn} title={title} href={link} rel="noopener noreferrer" target="_blank">
                     {buttonText}
                 </a>    
             )

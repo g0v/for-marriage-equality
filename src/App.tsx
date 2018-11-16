@@ -148,6 +148,7 @@ class App extends Component<Props, State> {
           </div>
         </div>
         <Gallery shifts={shifts} lat={this.state.lat} lng={this.state.lng} />
+        <footer className="footer">資料來源：<a rel="noopener noreferrer" target="_blank" href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit#gid=0">兩好三壞，全台開團資訊</a></footer>
       </div>
     );
   }
