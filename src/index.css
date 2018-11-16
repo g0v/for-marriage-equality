@@ -219,6 +219,7 @@ body {
     flex: 1;
     height: 38px;
     margin-left: 0px;
+    margin-bottom: 10px;
   }
   .filter-form .react-datepicker__input-container input {
     width: 100%;
