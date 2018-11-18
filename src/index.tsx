@@ -13,14 +13,15 @@ import Canvass from './canvass';
 import * as serviceWorker from './serviceWorker';
 import GetSheetDone from 'get-sheet-done';
 
-GetSheetDone.labeledCols("1Fc0BbQW6GWIlOtK5woKI-6zCjQ_V874KUzo8gcFUdnY").then((sheet:any) => {
-    var rawData = sheet.data
+const googleSheet: string = "131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q";
+
+GetSheetDone.labeledCols(googleSheet).then((sheet:any) => {
+    console.log("Got: ", sheet);
+    const rawData = sheet.data;
     const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
-
+    
     console.log("Created these shifts.", shifts);
-
     ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
-
 })
 
 // If you want your app to work offline and load faster, you can change
