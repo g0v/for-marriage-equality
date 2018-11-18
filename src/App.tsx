@@ -55,31 +55,31 @@ class App extends Component<Props, State> {
   handleLocationRequest(e: React.MouseEvent<HTMLButtonElement>): void {
     this.setState({loadingLocation: true})
     if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.applyCurrentLocation.bind(this))
+      navigator.geolocation.getCurrentPosition(this.applyCurrentLocation.bind(this));
     } else {
-      alert("此瀏覽器不支援定位搜尋")
-      this.setState({loadingLocation: false})
+      alert("此瀏覽器不支援定位搜尋");
+      this.setState({loadingLocation: false});
     }
   }
 
   applyCurrentLocation(location:any) {
     this.state.shifts.sort(function(a: Canvass, b: Canvass){
-      console.log(a)
-      console.log(b)
-      var position = point([location.coords.latitude, location.coords.longitude])
+      console.log(a);
+      console.log(b);
+      var position = point([location.coords.latitude, location.coords.longitude]);
       if (a.lat && a.lng) {
-        var aPos = point([a.lat, a.lng])
-        a.distance = distance(position, aPos)
+        var aPos = point([a.lat, a.lng]);
+        a.distance = distance(position, aPos);
       } else {
-        a.distance = 9999
+        a.distance = 9999;
       }
       if (b.lat && b.lng) {
-        var bPos = point([b.lat, b.lng])
-        b.distance = distance(position, bPos)
+        var bPos = point([b.lat, b.lng]);
+        b.distance = distance(position, bPos);
       } else {
-        b.distance = 9999
+        b.distance = 9999;
       }        
-      return a.distance! - b.distance!
+      return a.distance! - b.distance!;
     })
     console.log(this.state);
     this.setState({ orderByDistance: true, loadingLocation: false })
@@ -148,7 +148,7 @@ class App extends Component<Props, State> {
           </div>
         </div>
         <Gallery shifts={shifts} lat={this.state.lat} lng={this.state.lng} />
-        <footer className="footer">資料來源：<a rel="noopener noreferrer" target="_blank" href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit#gid=0">兩好三壞，全台開團資訊</a></footer>
+        <footer className="footer">資料來源：<a rel="noopener noreferrer" target="_blank" href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit?ts=5bf0bd8f#gid=0">兩好三壞，全台開團資訊</a></footer>
       </div>
     );
   }
