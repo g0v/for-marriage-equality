@@ -45,12 +45,6 @@ body {
   margin: 10px;
   position: relative;
   background-color: white;
-  transition: box-shadow 0.3s cubic-bezier(0, 0, 0.2, 1), transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-.gallery__item:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
-  transform: scale(1.03);
-  z-index: 99;
 }
 .gallery__item__labels-container {
   display: flex;
