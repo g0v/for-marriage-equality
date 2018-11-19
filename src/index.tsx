@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './index.css';
+import './index.scss';
 import "react-datepicker/dist/react-datepicker.css";
 
 // import G0vbar from 'g0v-banner';
@@ -17,11 +17,9 @@ const googleSheet: string = "1i3Y4VTelUNFySPXMys6rLlN3wZlC9T_vLKR1X-9rnmY";
 const sheetNum: number = 2;
 
 GetSheetDone.labeledCols(googleSheet, sheetNum).then((sheet:any) => {
-    console.log("Got: ", sheet);
     const rawData = sheet.data;
     const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
-    
-    console.log("Created these shifts.", shifts);
+
     ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 })
 

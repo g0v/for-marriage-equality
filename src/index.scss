@@ -26,7 +26,7 @@ body {
         flex: 1;
         height: 38px;
         margin-left: 1em;
-    }    
+    }
 }
 
 .gallery {
@@ -37,7 +37,7 @@ body {
 
     &::after {
         content: '';
-        flex-grow: 1000000000;            
+        flex-grow: 1000000000;
     }
 
     &__item {
@@ -86,7 +86,7 @@ body {
             margin-bottom: 16px;
 
             .stat {
-                flex: 1;    
+                flex: 1;
             }
         }
 
@@ -235,12 +235,16 @@ body {
     }
 }
 
+.btn-group-toggle {
+    margin-left: 1em;
+}
+
 @media only screen and (max-width: 767px) {
 
     .navbar > .container {
         padding-left: 5px;
     }
-    
+
 
     .filter-form{
         flex-direction: column;
@@ -254,13 +258,13 @@ body {
             margin-bottom: 10px;
             margin-left: 0px;
         }
-    
+
         select {
             flex: 1;
             margin-left: 0px;
             margin-bottom: 10px;
         }
-    
+
         .react-datepicker__input-container {
             flex: 1;
             height: 38px;
@@ -271,8 +275,8 @@ body {
                 width: 100%;
                 margin-left: 0px;
                 padding-left: 10px;
-            }    
-        }   
+            }
+        }
     }
 
     .navbar {
@@ -285,7 +289,7 @@ body {
         font-size: 100%;
         text-align: left;
     }
- 
+
     .container {
         padding-left: 5px;
         padding-right: 5px;
@@ -300,4 +304,16 @@ body {
         width: 100%;
         border: 0.5px solid rgb(220,220,220);
     }
+
+    .btn-group-toggle {
+        margin-left: 0;
+
+        .toggle {
+            width: 50%;
+        }
+    }
+}
+
+.map__root {
+  min-height: 80vh;
 }

@@ -23,7 +23,6 @@ export default class TableRow extends Component<Props> {
     // <th scope="col">備註</th>
     // TODO: ADD Meeting Point
     render() {
-        console.log("Rendering: ", this.props.shift);
         return (
             <tr>
                 <th scope="col">{this.props.shift.area}</th>
