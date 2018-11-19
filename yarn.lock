@@ -4094,10 +4094,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-g0v-banner@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/g0v-banner/-/g0v-banner-1.0.10.tgz#837c22a7f22aea4088473ee010e1db26d7e66e82"
-  integrity sha512-aYGPZpLcxh6LvWkQ/+h6dLJrz/yG+H7ljeQpHiyvzUU9fw+5zQhHEzRmziy9KWstFWvIvZMgPLO2CORv9/GrTw==
+g0v-banner@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/g0v-banner/-/g0v-banner-1.0.11.tgz#5c6388f2c8b8f563f41c9d07d05babe329ddeb4b"
+  integrity sha512-bs9xfg3KvWIZXnHXe/QI0A2pe3JNnWzTszm8XQtxwp9q6VO+Cx99i+OfLbp40vwLeEcJwo61Cxdrz0dzHjoI4A==
 
 gauge@~2.7.3:
   version "2.7.4"
