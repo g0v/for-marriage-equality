@@ -7,6 +7,7 @@ import Selector from "./components/Selector";
 import Button, { ButtonType } from "./components/Button";
 import Map from './components/Map';
 import G0vbar from "g0v-banner";
+import Toggles from "./components/Toggles";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -46,8 +47,7 @@ class App extends Component<Props, State> {
   handleDateUpdate = (newDate: moment.Moment): void => {
     this.setState({ date: newDate });
   }
-  handleViewChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const newView = e.target.value;
+  handleViewChange = (newView: string): void => {
     this.setState({ view: newView });
   }
   isOnThisDate = (c: Canvass): boolean => {
@@ -125,13 +125,15 @@ class App extends Component<Props, State> {
         <Navbar />
         <div className="container">
           <div className="row filter-form">
-            <Button buttonText={loadingLocation ? "定位中..." : "定位尋找附近開團"} type={ButtonType.primary} onClick={this.handleLocationRequest} />
-            <Selector
-              defaultValue=""
-              defaultTitle="檢視"
-              options={['地圖', '卡片列表']}
+            <Button 
+              buttonText={loadingLocation ? "定位中..." : "定位尋找附近開團"} 
+              type={ButtonType.primary} 
+              onClick={this.handleLocationRequest} 
+            />
+            <Toggles 
+              options={["地圖", "卡片列表"]}
+              selected="卡片列表"
               onChange={this.handleViewChange}
-              title={view}
             />
             <DatePicker
               selected={date}
@@ -167,10 +169,18 @@ class App extends Component<Props, State> {
           view === '地圖' &&
           <Map
             key={ /* recreate Map whenever these value change */ `${query}/${area}/${date}`}
-            shifts={shifts}
+            shifts={shifts.filter(c => {return c.lat!== undefined && c.lng !== undefined})}
           />
         }
-        <footer className="footer">資料來源：<a rel="noopener noreferrer" target="_blank" href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit?ts=5bf0bd8f#gid=0">兩好三壞，全台開團資訊</a></footer>
+        <footer className="footer">
+          資料來源：
+          <a 
+            rel="noopener noreferrer" 
+            target="_blank" 
+            href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit?ts=5bf0bd8f#gid=0">
+            兩好三壞，全台開團資訊
+          </a>
+        </footer>
       </div>
     );
   }

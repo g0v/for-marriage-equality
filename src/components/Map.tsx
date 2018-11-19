@@ -1,6 +1,8 @@
+/// <reference types="@types/googlemaps" />
 /* global google */
 
 import React from 'react';
+import Canvass from '../canvass';
 
 /**
  * A little bit hack way to turn google API loading into a promise.
@@ -13,13 +15,15 @@ import React from 'react';
 //   }
 // })
 
-class Map extends React.Component {
-  static defaultProps = {
-    shifts: [],
-  }
+interface Props {
+  shifts: Array<Canvass>;
+}
 
-  constructor(props) {
+class Map extends React.Component<Props> {
+  private rootEl: React.RefObject<HTMLDivElement>;
+  constructor(props: Props) {
     super(props);
+    console.log("Mapping with: ", props.shifts);
     this.rootEl = React.createRef();
   }
 
@@ -36,8 +40,13 @@ class Map extends React.Component {
     });
 
     this.props.shifts.forEach(({lat, lng, date, startTime, endTime, location}) => {
+      if(lat === undefined || lng === undefined) {
+        console.log("ERROR: Lat and Long are undefined.");
+        return;
+      }
+      const position: google.maps.LatLng = new google.maps.LatLng(lat, lng);
       const marker = new google.maps.Marker({
-        position: {lat, lng},
+        position: position,
         map,
         title: `${date} ${startTime}-${endTime} - ${location}`
       });
