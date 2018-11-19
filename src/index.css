@@ -256,9 +256,8 @@ body {
     border: 0.5px solid gainsboro;
   }
 }
-
-.map__root {
-  min-height: 80vh;
+.btn-group-toggle {
+  margin-left: 1em;
 }
 
 /*# sourceMappingURL=index.css.map */
