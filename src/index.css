@@ -257,4 +257,8 @@ body {
   }
 }
 
+.map__root {
+  min-height: 80vh;
+}
+
 /*# sourceMappingURL=index.css.map */
