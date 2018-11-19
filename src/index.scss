@@ -235,6 +235,10 @@ body {
     }
 }
 
+.btn-group-toggle {
+    margin-left: 1em;
+}
+
 @media only screen and (max-width: 767px) {
 
     .navbar > .container {
@@ -300,8 +304,13 @@ body {
         width: 100%;
         border: 0.5px solid rgb(220,220,220);
     }
+
+    .btn-group-toggle {
+        margin-left: 0;
+
+        .toggle {
+            width: 50%;
+        }
+    }
 }
 
-.btn-group-toggle {
-    margin-left: 1em;
-}

@@ -197,6 +197,10 @@ body {
   color: #2962ff;
 }
 
+.btn-group-toggle {
+  margin-left: 1em;
+}
+
 @media only screen and (max-width: 767px) {
   .navbar > .container {
     padding-left: 5px;
@@ -255,9 +259,13 @@ body {
     width: 100%;
     border: 0.5px solid gainsboro;
   }
-}
-.btn-group-toggle {
-  margin-left: 1em;
+
+  .btn-group-toggle {
+    margin-left: 0;
+  }
+  .btn-group-toggle .toggle {
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

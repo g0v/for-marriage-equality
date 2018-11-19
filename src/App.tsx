@@ -130,11 +130,7 @@ class App extends Component<Props, State> {
               type={ButtonType.primary} 
               onClick={this.handleLocationRequest} 
             />
-            <Toggles 
-              options={["地圖", "卡片列表"]}
-              selected="卡片列表"
-              onChange={this.handleViewChange}
-            />
+
             <DatePicker
               selected={date}
               onChange={this.handleDateUpdate}
@@ -162,6 +158,11 @@ class App extends Component<Props, State> {
                 onChange={this.handleQueryUpdate}
               />
             </div>
+            <Toggles 
+              options={["地圖", "卡片列表"]}
+              selected="卡片列表"
+              onChange={this.handleViewChange}
+            />
           </div>
         </div>
         {view === '卡片列表' && <Gallery shifts={shifts} lat={lat} lng={lng} />}
