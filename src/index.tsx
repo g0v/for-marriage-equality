@@ -17,11 +17,9 @@ const googleSheet: string = "1i3Y4VTelUNFySPXMys6rLlN3wZlC9T_vLKR1X-9rnmY";
 const sheetNum: number = 2;
 
 GetSheetDone.labeledCols(googleSheet, sheetNum).then((sheet:any) => {
-    console.log("Got: ", sheet);
     const rawData = sheet.data;
     const shifts: Array<Canvass> = rawData.map((a: any) => { return new Canvass(a) });
 
-    console.log("Created these shifts.", shifts);
     ReactDOM.render(<App shifts={shifts} />, document.getElementById('root'));
 })
 

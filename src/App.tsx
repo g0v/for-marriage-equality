@@ -69,8 +69,6 @@ class App extends Component<Props, State> {
 
   applyCurrentLocation = (location:any) => {
     this.state.shifts.sort(function(a: Canvass, b: Canvass){
-      console.log(a);
-      console.log(b);
       var position = point([location.coords.latitude, location.coords.longitude]);
       if (a.lat && a.lng) {
         var aPos = point([a.lat, a.lng]);
@@ -85,9 +83,8 @@ class App extends Component<Props, State> {
         b.distance = 9999;
       }
       return a.distance! - b.distance!;
-    })
-    console.log(this.state);
-    this.setState({ orderByDistance: true, loadingLocation: false })
+    });
+    this.setState({ orderByDistance: true, loadingLocation: false });
     // sort using distance
   }
 
@@ -104,7 +101,6 @@ class App extends Component<Props, State> {
       orderByDistance: false,
       loadingLocation: false,
     }
-    console.log(props.shifts[0].forQuery());
   }
   areaFilter = (c: Canvass): boolean => {
     if(this.state.area === "無" || this.state.area === "區域") return true;

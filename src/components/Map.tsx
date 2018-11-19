@@ -23,7 +23,6 @@ class Map extends React.Component<Props> {
   private rootEl: React.RefObject<HTMLDivElement>;
   constructor(props: Props) {
     super(props);
-    console.log("Mapping with: ", props.shifts);
     this.rootEl = React.createRef();
   }
 
@@ -41,7 +40,6 @@ class Map extends React.Component<Props> {
 
     this.props.shifts.forEach(({lat, lng, date, startTime, endTime, location}) => {
       if(lat === undefined || lng === undefined) {
-        console.log("ERROR: Lat and Long are undefined.");
         return;
       }
       const position: google.maps.LatLng = new google.maps.LatLng(lat, lng);

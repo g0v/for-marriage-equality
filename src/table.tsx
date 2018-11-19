@@ -11,7 +11,6 @@ export default class Table extends Component<Props> {
         super(props);
     }
     render() {
-        console.log("Table received: ", this.props.shifts)
         return (
             <table className="table">
                 <thead>
