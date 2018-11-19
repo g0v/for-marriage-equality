@@ -24,7 +24,9 @@ class Map extends React.Component {
   }
 
   shouldComponentUpdate() {
-    return false; // Use key attribute to re-render maps
+    // After componentDidMount, DOM is manipulated by Google Maps.
+    // Should never update.
+    return false;
   }
 
   componentDidMount() {

@@ -163,7 +163,13 @@ class App extends Component<Props, State> {
           </div>
         </div>
         {view === '卡片列表' && <Gallery shifts={shifts} lat={lat} lng={lng} />}
-        {view === '地圖' && <Map key={`${query}/${area}/${date}`} shifts={shifts} />}
+        {
+          view === '地圖' &&
+          <Map
+            key={ /* recreate Map whenever these value change */ `${query}/${area}/${date}`}
+            shifts={shifts}
+          />
+        }
         <footer className="footer">資料來源：<a rel="noopener noreferrer" target="_blank" href="https://docs.google.com/spreadsheets/d/131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/edit?ts=5bf0bd8f#gid=0">兩好三壞，全台開團資訊</a></footer>
       </div>
     );
