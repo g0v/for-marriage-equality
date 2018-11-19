@@ -84,13 +84,27 @@ export default class Canvass {
     public flyers: number;
     public line: string;
     public phone: string;
-    public lat: number;
-    public lng: number;
+    public lat?: number;
+    public lng?: number;
     public distance?: number;
 
     constructor(
         rawItem: any
         ) {
+            // Check if has valid latitude or longitude. 
+            let hasLatLong = false;
+            let lat = undefined;
+            let long = undefined;
+            if("經緯度" in rawItem) {
+                const latLong = rawItem["經緯度"].split(", ");
+                if(latLong.length == 2) {
+                    const areNumbers = Number(latLong[0])!==NaN && Number(latLong[1])!==NaN;
+                    if(areNumbers) {
+                        lat = Number(latLong[0]);
+                        long = Number(latLong[1]);
+                    }
+                }
+            }
             this.notes            = rawItem["備註"] ? rawItem["備註"] : "";
             this.area             = findArea(rawItem["區域"]);
             this.date             = rawItem["開團日期"];
@@ -104,8 +118,8 @@ export default class Canvass {
             this.flyers           = rawItem["預計發出文宣份數"];
             this.line             = rawItem["Line"] ? rawItem["Line"] : "";
             this.phone            = rawItem["電話"] ? rawItem["電話"] : "";
-            this.lat              = rawItem["經緯度"].split(", ")[0];
-            this.lng              = rawItem["經緯度"].split(", ")[1];
+            this.lat              = lat;
+            this.lng              = long;
         }
     getType(t: CanvassType): string {
         switch(t) {
