@@ -35,25 +35,25 @@ class Map extends React.Component<IProps> {
 
   public componentDidMount() {
     const map = new google.maps.Map(this.rootEl.current, {
-      center: {lat: 23.877295, lng: 121.030752},
+      center: { lat: 23.877295, lng: 121.030752 },
       zoom: 8,
     });
 
-    this.props.shifts.forEach(({lat, lng, date, startTime, endTime, location}) => {
-      if(lat === undefined || lng === undefined) {
+    this.props.shifts.forEach(({ lat, lng, date, startTime, endTime, location }) => {
+      if (lat === undefined || lng === undefined) {
         return;
       }
       const position: google.maps.LatLng = new google.maps.LatLng(lat, lng);
       const marker = new google.maps.Marker({
-        position: position,
         map,
-        title: `${date} ${startTime}-${endTime} - ${location}`
+        position,
+        title: `${date} ${startTime}-${endTime} - ${location}`,
       });
 
       const infoWindow = new google.maps.InfoWindow({
         content: `
           <div>${date} ${startTime}-${endTime} - ${location}</div><script>alert(1)</script>
-        `
+        `,
       });
 
       marker.addListener('click', () => {
@@ -62,8 +62,8 @@ class Map extends React.Component<IProps> {
     });
   }
 
-  public render(){
-    return (<div className="map__root" ref={this.rootEl} />)
+  public render() {
+    return (<div className="map__root" ref={this.rootEl} />);
   }
 }
 
