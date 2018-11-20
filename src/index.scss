@@ -311,6 +311,10 @@ body {
         .toggle {
             width: 50%;
         }
+
+        .toggle.active {
+            z-index: 0;
+        }
     }
 }
 
