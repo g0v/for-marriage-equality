@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvass, { CanvassType } from '../canvass';
+import Canvass, { CanvassType } from '../Canvass';
 import Label from './Label';
 import KeyValue from './KeyValue';
 import TextBlock from './TextBlock';

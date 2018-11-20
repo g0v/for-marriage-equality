@@ -2,7 +2,7 @@
 /* global google */
 
 import React from 'react';
-import Canvass from '../canvass';
+import Canvass from '../Canvass';
 
 /**
  * A little bit hack way to turn google API loading into a promise.

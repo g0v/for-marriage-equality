@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvass from './canvass';
+import Canvass from './Canvass';
 
 type Props = {
     shift: Canvass

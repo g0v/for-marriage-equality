@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GalleryItem from './GalleryItem';
-import Canvass from '../canvass';
+import Canvass from '../Canvass';
 import distance from '@turf/distance';
 import {point} from '@turf/helpers';
 

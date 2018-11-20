@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Canvass from './canvass';
 import TableRow from './tablerow';
+import Canvass from './Canvass';
+
 
 type Props = {
     shifts: Array<Canvass>
