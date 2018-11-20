@@ -1,6 +1,7 @@
 /// <reference types="@types/googlemaps" />
 /* global google */
 
+/* tslint:disable-next-line */
 import React from 'react';
 import Canvass from '../Canvass';
 
