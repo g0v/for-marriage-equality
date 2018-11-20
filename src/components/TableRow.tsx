@@ -1,6 +1,6 @@
 /* tslint:disable-next-line */
 import React, { Component } from 'react';
-import Canvass from './Canvass';
+import Canvass from '../Canvass';
 
 interface IProps {
   shift: Canvass;
