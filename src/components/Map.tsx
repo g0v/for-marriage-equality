@@ -16,24 +16,24 @@ import Canvass from '../Canvass';
 //   }
 // })
 
-interface Props {
-  shifts: Array<Canvass>;
+interface IProps {
+  shifts: Canvass[];
 }
 
-class Map extends React.Component<Props> {
+class Map extends React.Component<IProps> {
   private rootEl: React.RefObject<HTMLDivElement>;
-  constructor(props: Props) {
+  constructor(props: IProps) {
     super(props);
     this.rootEl = React.createRef();
   }
 
-  shouldComponentUpdate() {
+  public shouldComponentUpdate() {
     // After componentDidMount, DOM is manipulated by Google Maps.
     // Should never update.
     return false;
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     const map = new google.maps.Map(this.rootEl.current, {
       center: {lat: 23.877295, lng: 121.030752},
       zoom: 8,
@@ -54,15 +54,15 @@ class Map extends React.Component<Props> {
         content: `
           <div>${date} ${startTime}-${endTime} - ${location}</div><script>alert(1)</script>
         `
-      })
+      });
 
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
-      })
-    })
+      });
+    });
   }
 
-  render(){
+  public render(){
     return (<div className="map__root" ref={this.rootEl} />)
   }
 }
