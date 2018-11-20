@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Canvass from '../Canvass';
 import TableRow from './TableRow';
 
-
 interface IProps {
   shifts: Canvass[];
 }
