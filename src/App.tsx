@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 /* tslint:disable-next-line */
 import DatePicker from 'react-datepicker';
 
-
 import './App.css';
 import Canvass, { getAreas } from './Canvass';
 import Button, { ButtonType } from './components/Button';
@@ -17,9 +16,8 @@ import Navbar from './components/Navbar';
 import Selector from './components/Selector';
 import Toggles from './components/Toggles';
 
-
 import distance from '@turf/distance';
-import {point} from '@turf/helpers';
+import { point } from '@turf/helpers';
 
 export interface IProps {
   shifts: Canvass[];
@@ -30,7 +28,7 @@ type MaybeMoment = moment.Moment | null;
 export interface IState {
   area: string;
   query: string;
-  view: string,
+  view: string;
   shifts: Canvass[];
   date: MaybeMoment;
   lat?: number;
@@ -56,7 +54,7 @@ class App extends Component<IProps, IState> {
       query: '',
       shifts: props.shifts,
       view: '卡片列表',
-    }
+    };
   }
   public handleAreaChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const newArea = e.target.value;
@@ -86,10 +84,10 @@ class App extends Component<IProps, IState> {
         <Navbar />
         <div className="container">
           <div className="row filter-form">
-            <Button 
-              buttonText={loadingLocation ? '定位中...' : '定位尋找附近開團'} 
-              type={ButtonType.primary} 
-              onClick={this.handleLocationRequest} 
+            <Button
+              buttonText={loadingLocation ? '定位中...' : '定位尋找附近開團'}
+              type={ButtonType.primary}
+              onClick={this.handleLocationRequest}
             />
 
             <DatePicker
@@ -119,7 +117,7 @@ class App extends Component<IProps, IState> {
                 onChange={this.handleQueryUpdate}
               />
             </div>
-            <Toggles 
+            <Toggles
               options={['地圖', '卡片列表']}
               selected="卡片列表"
               onChange={this.handleViewChange}
@@ -130,16 +128,16 @@ class App extends Component<IProps, IState> {
         {
           view === '地圖' &&
           <Map
-            /* recreate Map whenever these key values change */ 
+            /* recreate Map whenever these key values change */
             key={`${query}/${area}/${date}`}
-            shifts={shifts.filter(c => (c.lat!== undefined && c.lng !== undefined))}
+            shifts={shifts.filter(c => (c.lat !== undefined && c.lng !== undefined))}
           />
         }
         <footer className="footer">
           資料來源：
-          <a 
-            rel="noopener noreferrer" 
-            target="_blank" 
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
             href={
               'https://docs.google.com/spreadsheets/d/' +
               '131ImXHRXARx8j8t9esNCJhrLUfZQG347L1k3GsJ1m1Q/' +
@@ -153,12 +151,12 @@ class App extends Component<IProps, IState> {
     );
   }
   public handleLocationRequest = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    this.setState({loadingLocation: true})
-    if(navigator.geolocation) {
+    this.setState({ loadingLocation: true });
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.applyCurrentLocation);
     } else {
       alert('此瀏覽器不支援定位搜尋');
-      this.setState({loadingLocation: false});
+      this.setState({ loadingLocation: false });
     }
   }
 
@@ -183,14 +181,14 @@ class App extends Component<IProps, IState> {
     // sort using distance
   }
   private isOnThisDate = (c: Canvass): boolean => {
-    if(this.state.date===null) return true;
+    if (this.state.date === null) return true;
     moment.locale('zh-tw');
-    const canvassDate = moment(c.date.substring(0, c.date.length-3), 'MM/DD');
-    if(this.state.date.isSame(canvassDate, 'day')) return true;
+    const canvassDate = moment(c.date.substring(0, c.date.length - 3), 'MM/DD');
+    if (this.state.date.isSame(canvassDate, 'day')) return true;
     return false;
   }
   private areaFilter = (c: Canvass): boolean => {
-    if(this.state.area === '無' || this.state.area === '區域') return true;
+    if (this.state.area === '無' || this.state.area === '區域') return true;
     return c.containsQuery(this.state.area);
   }
 }
