@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/for-marriage-equality/precache-manifest.23e05d5b6b1449f3baef755d4759dcde.js"
+  "/for-marriage-equality/precache-manifest.3a1c72808cfe648acae9797c4e60b398.js"
 );
 
 workbox.clientsClaim();
