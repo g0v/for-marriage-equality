@@ -28,7 +28,7 @@ class GalleryItem extends Component<IProps> {
           <div className="gallery__item__labels-container">
             {labels}
             {shift.distance && shift.distance !== 9999 &&
-              <Label key={-1} text={`約距 ${shift.distance.toFixed(2)} 公里`} />
+              <Label key={-1} text={`約距 ${shift.distance.toFixed(1} 公里`} />
             }
           </div>
         }

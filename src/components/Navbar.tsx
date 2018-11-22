@@ -6,7 +6,7 @@ export default function Navbar(props: any) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand" href="#">兩好三壞，全台開團資訊（11月16日更新）</a>
+        <a className="navbar-brand" href="#">兩好三壞，全台開團資訊</a>
         <button
           className="navbar-toggler"
           type="button"
